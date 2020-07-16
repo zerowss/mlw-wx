@@ -1,0 +1,18 @@
+{
+  "compileType": "miniprogram",
+  "setting": {
+    "newFeature": true,
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": false,
+    "checkSiteMap": true,
+    "autoAudits": false
+  },
+  "libVersion": "2.10.1",
+  "appid": "wx07c4c74de8b760c0",
+  "projectname": "mlw_wx",
+  "description": "mlw_wx project",
+  "isGameTourist": false,
+  "simulatorType": "wechat"
+}

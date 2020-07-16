@@ -1,0 +1,50 @@
+<script lang="ts" src="./app.ts"></script>
+
+<style lang="less">
+page {
+  background-color: #f5f5f5;
+  font-size: 14rpx;
+}
+</style>
+
+<script name="json">
+module.exports = {
+  pages: [
+    "./pages/index/index",
+    "./pages/detail/index",
+    ],
+  debug: process.env.NODE_ENV !== "production",
+  window: {
+    navigationBarBackgroundColor: "#ffffff",
+    navigationBarTextStyle: "black",
+    navigationBarTitleText: "联优找房",
+    backgroundColor: "#eee",
+    backgroundTextStyle: "light"
+  },
+  tabBar: {
+    color: "#7A7E83",
+    selectedColor: "#3cc51f",
+    borderStyle: "black",
+    backgroundColor: "#ffffff",
+    list: [
+      {
+        pagePath: "pages/index/index",
+        text: '首页'
+      },
+      {
+        pagePath: "pages/detail/index",
+        text: '详情'
+      }
+    ]
+  },
+  permission: {
+    "scope.userLocation": {
+      desc: "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  useExtendedLib: {
+    weui: true
+  },
+  usingComponents: {}
+}
+</script>
