@@ -1,5 +1,5 @@
 <template>
-  <view>详情</view>
+  <view>定制房源</view>
   <list></list>
 </template>
 

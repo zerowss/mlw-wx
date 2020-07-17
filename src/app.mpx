@@ -28,12 +28,28 @@ module.exports = {
     backgroundColor: "#ffffff",
     list: [
       {
-        pagePath: "pages/index/index",
-        text: '首页'
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/icon_home@3x.png",
+        "selectedIconPath": "static/tabbar/icon_home_selected@3x.png"
       },
       {
-        pagePath: "pages/detail/index",
-        text: '详情'
+        "pagePath": "pages/customizedHousing/index",
+        "text": "定制房源",
+        "iconPath": "static/tabbar/icon_dingzhifangyuan@3x.png",
+        "selectedIconPath": "static/tabbar/icon_dingzhifangyuan_selected@3x.png"
+      },
+      {
+        "pagePath": "pages/landlordJoining/index",
+        "text": "房东加盟",
+        "iconPath": "static/tabbar/icon_fangdongjiameng@3x.png",
+        "selectedIconPath": "static/tabbar/icon_fangdongjiameng_selected@3x.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "static/tabbar/icon_wode@3x.png",
+        "selectedIconPath": "static/tabbar/icon_wode@3x_selected@3x.png"
       }
     ]
   },
