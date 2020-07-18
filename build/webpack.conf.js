@@ -17,6 +17,17 @@ const webpackConf = {
   module: {
     rules: [
       {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'less-loader',
+            options:{
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.ts$/,
         use: [
           'babel-loader',

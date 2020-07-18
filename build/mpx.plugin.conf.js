@@ -36,7 +36,7 @@ module.exports = {
       mode: 'only',
       comment: 'use rpx',
       include: resolve('src')
-    },
+    }
   ],
 
 

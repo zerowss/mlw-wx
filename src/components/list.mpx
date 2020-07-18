@@ -6,9 +6,12 @@
 
 <script lang="ts" src="./list.ts"></script>
 
-<style lang="stylus">
+<style lang="less">
+@import url('@/style/var.less');
 .list {
   background-color: red;
+  width: ~`rpx(200)`;
+  font-size: 10*@v;
 }
 </style>
 

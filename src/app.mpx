@@ -1,17 +1,11 @@
 <script lang="ts" src="./app.ts"></script>
-
-<style lang="less">
-page {
-  background-color: #f5f5f5;
-  font-size: 14rpx;
-}
-</style>
-
 <script name="json">
 module.exports = {
   pages: [
     "./pages/index/index",
-    "./pages/detail/index",
+    "./pages/customizedHousing/index",
+    "./pages/landlordJoining/index",
+    "./pages/mine/index",
     ],
   debug: process.env.NODE_ENV !== "production",
   window: {
@@ -22,34 +16,34 @@ module.exports = {
     backgroundTextStyle: "light"
   },
   tabBar: {
-    color: "#7A7E83",
-    selectedColor: "#3cc51f",
+    color: "#333333",
+    selectedColor: "#069991",
     borderStyle: "black",
     backgroundColor: "#ffffff",
     list: [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/tabbar/icon_home@3x.png",
-        "selectedIconPath": "static/tabbar/icon_home_selected@3x.png"
+        "iconPath": "static/images/tabbar/icon_home@3x.png",
+        "selectedIconPath": "static/images/tabbar/icon_home_selected@3x.png"
       },
       {
         "pagePath": "pages/customizedHousing/index",
         "text": "定制房源",
-        "iconPath": "static/tabbar/icon_dingzhifangyuan@3x.png",
-        "selectedIconPath": "static/tabbar/icon_dingzhifangyuan_selected@3x.png"
+        "iconPath": "static/images/tabbar/icon_dingzhifangyuan@3x.png",
+        "selectedIconPath": "static/images/tabbar/icon_dingzhifangyuan_selected@3x.png"
       },
       {
         "pagePath": "pages/landlordJoining/index",
         "text": "房东加盟",
-        "iconPath": "static/tabbar/icon_fangdongjiameng@3x.png",
-        "selectedIconPath": "static/tabbar/icon_fangdongjiameng_selected@3x.png"
+        "iconPath": "static/images/tabbar/icon_fangdongjiameng@3x.png",
+        "selectedIconPath": "static/images/tabbar/icon_fangdongjiameng_selected@3x.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath": "static/tabbar/icon_wode@3x.png",
-        "selectedIconPath": "static/tabbar/icon_wode@3x_selected@3x.png"
+        "iconPath": "static/images/tabbar/icon_wode@3x.png",
+        "selectedIconPath": "static/images/tabbar/icon_wode_selected@3x.png"
       }
     ]
   },

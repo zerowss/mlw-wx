@@ -1,5 +1,6 @@
+import {SearchTypes} from '../types'
 export default {
-    cityName(state) {
+    cityName(state:SearchTypes.IState) {
         return state.cityName.replace('市', '')
     }
 }
