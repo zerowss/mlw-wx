@@ -1,14 +1,38 @@
 <template>
-  <view>首页</view>
-  <list></list>
+  <view class="header">
+    <view class="header-search">
+      <view class="search-city">
+        <van-dropdown-menu>
+          <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+        </van-dropdown-menu>
+      </view>
+      <view class="search-key">
+        <view class="search-icon"></view>
+        <view class="search-clear"></view>
+      </view>
+    </view>
+    <view class="banner">
+      <!-- <swiper autoplay="true">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view :style="{{backgroundColor: item }}" class="swiper-item"></view>
+          </swiper-item>
+        </block>
+      </swiper> -->
+    </view>
+  </view>
 </template>
 
 <script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
 
 <script type="application/json">
   {
     "usingComponents": {
-      "list": "@/components/list"
+      "van-dropdown-menu": "@vant/weapp/dist/dropdown-menu/index",
+      "van-dropdown-item": "@vant/weapp/dist/dropdown-item/index"
     }
   }
 </script>

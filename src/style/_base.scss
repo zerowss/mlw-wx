@@ -1,0 +1,56 @@
+@import "var";
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin box($w: 100%, $h: auto) {
+  @if type-of($value: $w) == number {
+    width: _rpx($w);
+  } @else {
+    width: $w;
+  }
+  height: $h;
+  box-sizing: border-box;
+}
+
+@mixin bgUrl($url) {
+  background-image: url(#{$url});
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100% 100%;
+}
+
+// 文字超出省略
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// 元素居中
+@mixin trans-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 为元素添加 Retina 屏幕下的 1px 边框
+@mixin hairline {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid $line-fine;
+}
+
+@mixin box-shadow($shadow: 0 0 12rpx #dcdcdc) {
+  box-shadow: $shadow;
+}

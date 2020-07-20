@@ -1,0 +1,49 @@
+//设计稿375 适配750
+$v:2rpx;
+@function _rpx($n){
+    @return #{$n*2}rpx;
+}
+
+// 背景色
+$bg: #ffffff;
+
+// 字号
+$f22: 22*$v;
+$f20: 20*$v;
+$f16: 16*$v;
+$f14: 14*$v;
+$f12: 12*$v;
+$f10: 10*$v;
+
+// 颜色
+$cblack: #333333;
+$cblack-light: #666666;
+$cblack-light-less: #999999;
+$cblack-light-most: #B5B5B5;
+$cblue: #069991;
+$cred: #F11400;
+$cred-light:#936943;
+
+// 按钮颜色
+$btn-bg: #ffffff;
+$btn-word: $cblue;
+$btn-border: $cblue;
+
+$btn-active-bg: $cblue;
+$btn-active-word: #ffffff;
+$btn-active-border: $cblue;
+
+// 分割线
+$line-fine: #E9E9E9;
+$line-crude: #F4F6F7;
+
+// 标签
+$label-normal: #F8F6F1;
+$label-warning: #FDE7E5;
+$label-success: #EFF3F6;
+
+// 圆角
+$border-radius: _rpx(4);
+$border-color: #E2E2E2;
+
+

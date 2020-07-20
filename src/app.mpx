@@ -1,4 +1,7 @@
 <script lang="ts" src="./app.ts"></script>
+<style lang="scss">
+@import './app.scss';
+</style>
 <script name="json">
 module.exports = {
   pages: [
@@ -49,7 +52,7 @@ module.exports = {
   },
   permission: {
     "scope.userLocation": {
-      desc: "你的位置信息将用于小程序位置接口的效果展示"
+      desc: "您的位置数据将用于定位城市、推荐附近房源"
     }
   },
   useExtendedLib: {

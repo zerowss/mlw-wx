@@ -1,0 +1,47 @@
+@import '@/style/_base';
+
+.header{
+    width: 100%;
+    box-sizing: border-box;
+    padding: _rpx(20);
+    
+    .header-search{
+        width: 100%;
+        height: _rpx(36);
+        display: flex;
+        @include box-shadow;
+        border-radius: $border-radius;
+        .search-city{
+            @include box(73.5);
+            --dropdown-menu-height: 72rpx;
+            --dropdown-menu-title-text-color: #069991;
+            --dropdown-menu-title-font-size: 28rpx;
+        }
+        .search-key{
+            flex:1;
+            border-left: 1rpx solid $border-color;
+            position: relative;
+            text-indent: _rpx(41.5);
+            font-size: $f14;
+            line-height: 1;
+            .search-icon{
+                position: absolute;
+                @include box(_rpx(14),_rpx(14));
+                @include bgUrl('../../static/images/icon/icon_sousuo@3x.png');
+                top: _rpx(11);
+                left: _rpx(17.5);
+            }
+            .search-clear{
+                position: absolute;
+                @include box(_rpx(14),_rpx(14));
+                @include bgUrl('../../static/images/icon/icon_close@3x.png');
+                top: _rpx(11);
+                right: _rpx(10);
+            }
+        }
+    }
+    .banner{
+        width: 100%;
+        height: _rpx(143);
+    }
+}
