@@ -1,24 +1,88 @@
 <template>
-  <view class="header">
+  <!-- 头部 -->
+  <view class="top">
+    <!-- 位置搜索 / 吸顶-->
     <view class="header-search">
       <view class="search-city">
-        <van-dropdown-menu>
-          <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
-        </van-dropdown-menu>
+        <view class="city-name">北京</view>
+        <view class="city-icon-wrap">
+          <view class="city-icon"></view>
+        </view>
       </view>
       <view class="search-key">
         <view class="search-icon"></view>
         <view class="search-clear"></view>
       </view>
     </view>
+  </view>
+  <view class="header">
+    <!-- banner -->
     <view class="banner">
-      <!-- <swiper autoplay="true">
+      <swiper circular="true" autoplay="true" style="height: 286rpx">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
-            <view :style="{{backgroundColor: item }}" class="swiper-item"></view>
+            <view style="background-color:{{item }}" class="swiper-item"></view>
           </swiper-item>
         </block>
-      </swiper> -->
+      </swiper>
+    </view>
+    <!-- 模块 -->
+    <view class="menu-tabs">
+      <view class="menu-item">
+        <view class="meun-icon hz"></view>
+        <view class="menu-tit">合租</view>
+      </view>
+      <view class="menu-item">
+        <view class="meun-icon zz"></view>
+        <view class="menu-tit">整租</view>
+      </view>
+      <view class="menu-item">
+        <view class="meun-icon jm"></view>
+        <view class="menu-tit">房东加盟</view>
+      </view>
+      <view class="menu-item">
+        <view class="meun-icon dz"></view>
+        <view class="menu-tit">定制房源</view>
+      </view>
+    </view>
+  </view>
+  <view class="hairline"></view>
+  <!-- 搜索、房源 -->
+  <van-sticky offset-top="{{ 56 }}">
+    <view class="containt">
+      <!-- 搜索条件 -->
+      <view class="search-tabs">
+        <view class="search-item" wx:for="{{searchList}}" wx:key="index">
+          <view class="search-dropdown">
+            <van-dropdown-menu>
+              <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+            </van-dropdown-menu>
+          </view>
+        </view>
+      </view>
+      <!-- 活动标签 -->
+      <view class="activte-tags" wx:if="{{activityTagsList.length > 0}}">
+        <scroll-view scroll-x="true">
+          <block wx:for="{{activityTagsList}}" wx:key="index">
+            <activity-tag
+              disabled="true"
+              bind:selectTags="selectTags"
+              activity-name="{{item}}"
+              is-activited="true"
+            ></activity-tag>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </van-sticky>
+  <!-- 房源展示 -->
+  <view class="containt">
+    <view class="house-info-wrap">
+      <block wx:for="{{houseInfoList}}" wx:key="index">
+        <view class="house-info-item {{index == 0?'.no-bo':''}}">
+          <house-info></house-info>
+        </view>
+      </block>
     </view>
   </view>
 </template>
@@ -32,7 +96,10 @@
   {
     "usingComponents": {
       "van-dropdown-menu": "@vant/weapp/dist/dropdown-menu/index",
-      "van-dropdown-item": "@vant/weapp/dist/dropdown-item/index"
+      "van-dropdown-item": "@vant/weapp/dist/dropdown-item/index",
+      "activity-tag": "@/components/activityTag",
+      "house-info": "@/components/houseInfo",
+      "van-sticky": "@vant/weapp/dist/sticky/index"
     }
   }
 </script>

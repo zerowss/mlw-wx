@@ -10,6 +10,7 @@ $bg: #ffffff;
 // 字号
 $f22: 22*$v;
 $f20: 20*$v;
+$f18: 18*$v;
 $f16: 16*$v;
 $f14: 14*$v;
 $f12: 12*$v;
@@ -41,6 +42,11 @@ $line-crude: #F4F6F7;
 $label-normal: #F8F6F1;
 $label-warning: #FDE7E5;
 $label-success: #EFF3F6;
+
+// 活动标签
+$tag-activity-bg: #F3F9F9;
+$tag-activity-word: #333333;
+$tag-activity-slected-word: #069991;
 
 // 圆角
 $border-radius: _rpx(4);

@@ -58,6 +58,8 @@ module.exports = {
   useExtendedLib: {
     weui: true
   },
-  usingComponents: {}
+  usingComponents: {
+    "van-image": "@vant/weapp/dist/image/index"
+  }
 }
 </script>

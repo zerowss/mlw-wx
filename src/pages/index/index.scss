@@ -1,47 +1,168 @@
-@import '@/style/_base';
-
-.header{
+@import "@/style/_base";
+.top {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: _rpx(20) _rpx(20) 0 _rpx(20);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 1000;
+  .header-search {
     width: 100%;
-    box-sizing: border-box;
-    padding: _rpx(20);
-    
-    .header-search{
-        width: 100%;
-        height: _rpx(36);
+    height: _rpx(36);
+    display: flex;
+    @include box-shadow;
+    border-radius: $border-radius;
+    background-color: $bg;
+    .search-city {
+      @include box(73.5);
+      display: flex;
+      .city-name{
+        font-size: $f14;
+        color: $cblue;
+        height: _rpx(20);
+        line-height: _rpx(20);
+        padding: _rpx(8) 0 0 _rpx(15);
+        flex: 1;
+      }
+      .city-icon-wrap{
+        width: _rpx(22.5);
         display: flex;
-        @include box-shadow;
-        border-radius: $border-radius;
-        .search-city{
-            @include box(73.5);
-            --dropdown-menu-height: 72rpx;
-            --dropdown-menu-title-text-color: #069991;
-            --dropdown-menu-title-font-size: 28rpx;
-        }
-        .search-key{
-            flex:1;
-            border-left: 1rpx solid $border-color;
-            position: relative;
-            text-indent: _rpx(41.5);
-            font-size: $f14;
-            line-height: 1;
-            .search-icon{
-                position: absolute;
-                @include box(_rpx(14),_rpx(14));
-                @include bgUrl('../../static/images/icon/icon_sousuo@3x.png');
-                top: _rpx(11);
-                left: _rpx(17.5);
-            }
-            .search-clear{
-                position: absolute;
-                @include box(_rpx(14),_rpx(14));
-                @include bgUrl('../../static/images/icon/icon_close@3x.png');
-                top: _rpx(11);
-                right: _rpx(10);
-            }
-        }
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .city-icon{
+        width: _rpx(9);
+        height: _rpx(5);
+        @include bgUrl('../../static/images/icon/arrow_down@3x.png');
+      }
     }
-    .banner{
-        width: 100%;
-        height: _rpx(143);
+    .search-key {
+      flex: 1;
+      border-left: 1rpx solid $border-color;
+      position: relative;
+      text-indent: _rpx(41.5);
+      font-size: $f14;
+      line-height: 1;
+      .search-icon {
+        position: absolute;
+        @include box(_rpx(14), _rpx(14));
+        @include bgUrl("../../static/images/icon/icon_sousuo@3x.png");
+        top: _rpx(11);
+        left: _rpx(17.5);
+      }
+      .search-clear {
+        position: absolute;
+        @include box(_rpx(14), _rpx(14));
+        @include bgUrl("../../static/images/icon/icon_close@3x.png");
+        top: _rpx(11);
+        right: _rpx(10);
+      }
     }
+  }
+}
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: _rpx(76) _rpx(20) 0 _rpx(20);
+  background-color: $bg;
+  .banner {
+    width: 100%;
+    height: _rpx(159);
+    padding: _rpx(6) 0 _rpx(10) 0; // 阴影部分预留
+    box-sizing: border-box;
+    @include bgUrl(
+      "http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/background_banner.png"
+    );
+    .swiper-item {
+      width: 100%;
+      height: _rpx(143);
+      background-color: #ffffff;
+    }
+  }
+  .menu-tabs {
+    width: 100%;
+    height: _rpx(110);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .menu-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .meun-icon {
+        width: _rpx(36);
+        height: _rpx(36);
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 100% 100%;
+        &.hz {
+          background-image: url("../../static/images/icon/icon_hezu@3x.png");
+        }
+        &.zz {
+          background-image: url("../../static/images/icon/icon_zhengzu@3x.png");
+        }
+        &.jm {
+          background-image: url("../../static/images/icon/icon_jiameng@3x.png");
+        }
+        &.dz {
+          background-image: url("../../static/images/icon/icon_dingzhi@3x.png");
+        }
+      }
+      .menu-tit {
+        width: _rpx(56);
+        height: _rpx(20);
+        text-align: center;
+        font-size: $f14;
+        line-height: _rpx(20);
+        margin-top: _rpx(10);
+      }
+    }
+  }
+}
+.hairline {
+  width: 100%;
+  height: 1rpx;
+  background-color: $line-fine;
+}
+.containt {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 _rpx(20);
+  background-color: #ffffff;
+  .search-tabs {
+    width: 100%;
+    height: _rpx(60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .search-item {
+      flex: 1;
+    }
+  }
+  .activte-tags {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: _rpx(10);
+    .scroll-view {
+      height: _rpx(28);
+    }
+  }
+  .house-info-wrap {
+    .house-info-item {
+      width: 100%;
+      height: auto;
+      padding: _rpx(20) 0 _rpx(16) 0;
+      border-top: 1rpx solid $line-fine;
+    }
+    .no-bo{
+      border-top: none;
+      padding: _rpx(10) 0 _rpx(16) 0;
+    }
+  }
 }
