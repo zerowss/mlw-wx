@@ -6,6 +6,7 @@
 module.exports = {
   pages: [
     "./pages/index/index",
+    "./pages/searchKeywords/index",
     "./pages/customizedHousing/index",
     "./pages/landlordJoining/index",
     "./pages/mine/index",
@@ -59,7 +60,8 @@ module.exports = {
     weui: true
   },
   usingComponents: {
-    "van-image": "@vant/weapp/dist/image/index"
+    "van-image": "@vant/weapp/dist/image/index",
+    "van-action-sheet": "@vant/weapp/dist/action-sheet/index"
   }
 }
 </script>

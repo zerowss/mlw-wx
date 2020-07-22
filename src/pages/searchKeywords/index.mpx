@@ -1,0 +1,46 @@
+<template>
+  <view class="page_wrap">
+    <block>
+      <view class="search flex_center">
+        <view class="search-input">
+          <view class="search-icon"></view>
+          <input
+            confirm-type="search"
+            placeholder-class="placeholder"
+            class="input"
+            auto-focus
+            placeholder="你想住在哪?"
+            bindconfirm="handleSearch"
+          />
+        </view>
+        <view class="search-cancel" bindtap="handleCancel">
+          <text>取消</text>
+        </view>
+      </view>
+    </block>
+    <block>
+      <view class="hot">热门搜索</view>
+      <view class="hot-tags">
+        <activity-tag
+          disabled="{{true}}"
+          activity-name="年付免1月"
+          is-activited="{{true}}"
+          class="activity-tag"
+        ></activity-tag>
+      </view>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "activity-tag": "@/components/activityTag"
+    }
+  }
+</script>

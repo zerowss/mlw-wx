@@ -1,26 +1,8 @@
 <template>
-  <view wx:class="{{currentClass}}" bindtap="changeTag" wx:style="{{styleObj}}">{{activity_name}}</view>
+  <view wx:class="{{currentClass}}" bindtap="changeTag" >{{activity_name}}</view>
 </template>
 
 <script lang="ts" src="./index.ts"></script>
-
-<style lang="scss">
-@import "@/style/_base";
-.activity-tag {
-  display: inline-block;
-  vertical-align: top;
-  // background-color: $tag-activity-bg;
-  // font-size: $f12;
-  // color: $tag-activity-word;
-  // padding: _rpx(6) _rpx(14);
-  // height: _rpx(16);
-  margin-right: _rpx(14);
-  &.activited {
-    color: $tag-activity-slected-word;
-  }
-}
-</style>
-
 <script type="application/json">
   {
     "component": true

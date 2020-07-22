@@ -3,9 +3,9 @@ export interface IPayload {
     [key: string]: any;
 }
 
-export namespace SearchTypes{
+export namespace KeywordsTypes{
     export interface IState {
-        cityName: string
+        keywords: string
     }
 }
 

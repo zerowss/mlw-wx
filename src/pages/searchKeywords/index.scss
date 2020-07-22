@@ -1,0 +1,54 @@
+@import "@/style/_base";
+
+.search {
+  padding: _rpx(20) 0;
+  .search-input {
+    width: _rpx(283);
+    @include box-shadow;
+    border-radius: _rpx(4);
+    position: relative;
+    .input {
+      width: 100%;
+      height: _rpx(36);
+      line-height: _rpx(36);
+      box-sizing: border-box;
+      padding-left: _rpx(42);
+      font-size: $f14;
+    }
+    .placeholder {
+      font-size: $f14;
+      color: $cblack-light-most;
+    }
+    .search-icon {
+      position: absolute;
+      @include box(_rpx(14), _rpx(14));
+      @include bgUrl("../../static/images/icon/icon_sousuo@3x.png");
+      top: _rpx(11);
+      left: _rpx(18);
+    }
+  }
+  .search-cancel {
+    width: _rpx(32);
+    height: _rpx(36);
+    line-height: _rpx(36);
+    font-size: $f16;
+    color: $cblue;
+    margin-left: _rpx(18);
+  }
+}
+
+.hot {
+  font-size: $f16;
+  color: $cblack;
+  height: _rpx(22);
+  line-height: _rpx(22);
+  margin: _rpx(4) 0 _rpx(16) 0;
+}
+.hot-tags {
+  .activity-tag {
+    @include activitytag;
+    background-color: #fde7e5;
+    margin-right: _rpx(15);
+    margin-bottom: _rpx(15);
+  }
+}

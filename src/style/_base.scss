@@ -54,3 +54,14 @@
 @mixin box-shadow($shadow: 0 0 12rpx #dcdcdc) {
   box-shadow: $shadow;
 }
+
+// 标签基础样式
+@mixin activitytag {
+  display: inline-block;
+  background-color: $label-success;
+  font-size: $f12;
+  color: $tag-activity-word;
+  padding: _rpx(6) _rpx(14);
+  margin-right: _rpx(14);
+  border-radius: _rpx(2);
+}

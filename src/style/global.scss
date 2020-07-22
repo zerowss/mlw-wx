@@ -1,0 +1,17 @@
+@import 'base';
+
+// 定义全局样式 下划线_标识 区分
+.page_wrap{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 _rpx(20);
+    background-color: $bg;
+}
+
+// flex
+.flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

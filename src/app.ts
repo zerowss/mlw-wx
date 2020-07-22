@@ -27,7 +27,8 @@ createApp({
           success(result) {
             console.log(result, 'location');
             getCity(result).then((cityInfo: any) => {
-              const city_name = cityInfo.data.result.addressComponent.city as string
+              let city_name = cityInfo.data.result.addressComponent.city as string
+              city_name = city_name.replace('市','')
               _that.globalData.cityName = city_name
               wx.setStorageSync('cityName', city_name)
             }).catch(err => {

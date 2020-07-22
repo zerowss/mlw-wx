@@ -7,7 +7,7 @@
   position: fixed;
   top:0;
   left: 0;
-  z-index: 1000;
+  z-index: 999;
   .header-search {
     width: 100%;
     height: _rpx(36);
@@ -58,6 +58,17 @@
         @include bgUrl("../../static/images/icon/icon_close@3x.png");
         top: _rpx(11);
         right: _rpx(10);
+      }
+      .search-keywords{
+        font-size: $f14;
+        height: _rpx(36);
+        line-height: _rpx(36);
+        text-indent: _rpx(41.5);
+        text-align: left;
+        color: #B5B5B5;
+        &.active{
+          color: #333333;
+        }
       }
     }
   }
@@ -151,6 +162,12 @@
     padding-bottom: _rpx(10);
     .scroll-view {
       height: _rpx(28);
+    }
+    .activity-tag {
+      @include activitytag;
+      &.activited-tag{
+        color: $cblue;
+      }
     }
   }
   .house-info-wrap {

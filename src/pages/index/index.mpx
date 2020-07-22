@@ -3,14 +3,15 @@
   <view class="top">
     <!-- 位置搜索 / 吸顶-->
     <view class="header-search">
-      <view class="search-city">
-        <view class="city-name">北京</view>
+      <view class="search-city" bindtap="handleCity">
+        <view class="city-name">{{city_name}}</view>
         <view class="city-icon-wrap">
           <view class="city-icon"></view>
         </view>
       </view>
-      <view class="search-key">
+      <view class="search-key" bindtap="handleKeyWord">
         <view class="search-icon"></view>
+        <view class="search-keywords">{{keywords}}</view>
         <view class="search-clear"></view>
       </view>
     </view>
@@ -65,10 +66,9 @@
         <scroll-view scroll-x="true">
           <block wx:for="{{activityTagsList}}" wx:key="index">
             <activity-tag
-              disabled="true"
               bind:selectTags="selectTags"
               activity-name="{{item}}"
-              is-activited="true"
+              class="activity-tag activited-tag"
             ></activity-tag>
           </block>
         </scroll-view>
@@ -85,6 +85,15 @@
       </block>
     </view>
   </view>
+  <!-- 城市选项 -->
+  <van-action-sheet
+    show="{{ isShowCityList }}"
+    actions="{{ cityList }}"
+    bind:close="onClose"
+    bind:select="onSelect"
+    round="{{false}}"
+    z-index="{{1000}}"
+  />
 </template>
 
 <script lang="ts" src="./index.ts"></script>
