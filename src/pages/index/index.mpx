@@ -80,7 +80,9 @@
     <view class="house-info-wrap">
       <block wx:for="{{houseInfoList}}" wx:key="index">
         <view class="house-info-item {{index == 0?'.no-bo':''}}">
-          <house-info></house-info>
+          <navigator url="/pages/detail/index?title=navigate">
+            <house-info></house-info>
+          </navigator>
         </view>
       </block>
     </view>

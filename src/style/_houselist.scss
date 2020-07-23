@@ -1,0 +1,45 @@
+// 房源列表 
+.containt {
+    width: 100%;
+    box-sizing: border-box;
+    // padding: 0 _rpx(20);
+    background-color: #ffffff;
+    .search-tabs {
+      width: 100%;
+      height: _rpx(60);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .search-item {
+        flex: 1;
+      }
+    }
+    .activte-tags {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-bottom: _rpx(10);
+      .scroll-view {
+        height: _rpx(28);
+      }
+      .activity-tag {
+        @include activitytag;
+        &.activited-tag{
+          color: $cblue;
+        }
+      }
+    }
+    .house-info-wrap {
+      .house-info-item {
+        width: 100%;
+        height: auto;
+        padding: _rpx(20) 0 _rpx(16) 0;
+        border-top: 1rpx solid $line-fine;
+      }
+      .no-bo{
+        border-top: none;
+        padding: _rpx(10) 0 _rpx(16) 0;
+      }
+    }
+  }

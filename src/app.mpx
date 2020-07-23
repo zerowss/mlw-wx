@@ -5,6 +5,8 @@
 <script name="json">
 module.exports = {
   pages: [
+    "./pages/detail/index",
+
     "./pages/index/index",
     "./pages/searchKeywords/index",
     "./pages/customizedHousing/index",

@@ -1,12 +1,181 @@
 <template>
-  <view>我的</view>
+  <navigation-bar title="房屋详情"></navigation-bar>
+
+  <view class="banner">
+    <swiper circular="true" autoplay="true" style="height: 532rpx" bindchange="handleSwiperChange">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view style="background-color:{{item }}" class="swiper-item">
+            <!-- <image src="" alt="" bindtap='imgYu'> -->
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="swiper-count">{{swiperCount}}/{{swiperTotal}}</view>
+  </view>
+
+  <view class="page_wrap bor-bot">
+    <view class="detail-content">
+      <!-- 标题 -->
+      <view class="title">双榆树东里2居室-A卧</view>
+      <view class="price">
+        <text>¥ 2300</text>/月（无中介费）
+      </view>
+      <!-- 标签 -->
+      <view class="tags">
+        <activity-tag activity-name="可预定" class="activity-tag" />
+      </view>
+      <!-- 活动 -->
+      <view class="activities-wrap">
+        <view class="activities">
+          <view class="act-l">活动</view>
+          <view class="act-r">
+            <view class="act-memo">
+              <activity-tag activity-name="租金折扣" class="activity-tag" />
+              <view class="act-memo-word">年付免1月租金</view>
+            </view>
+            <view class="act-memo">
+              <activity-tag activity-name="租金折扣" class="activity-tag" />
+              <view class="act-memo-word">年付免1月租金</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 房屋信息 -->
+      <view class="info mt25">
+        <view class="title">房屋信息</view>
+        <view class="h-info">
+          <text>合租</text>
+          <text>2室1厅1卫1阳台</text>
+          <text>52m²</text>
+          <text>4/5层</text>
+        </view>
+      </view>
+      <!-- 房间信息、入住日期 -->
+      <view class="info-wrap mt20">
+        <view class="info">
+          <view class="title">房间信息</view>
+          <view class="h-info">
+            <text>22m²</text>
+            <text>南</text>
+          </view>
+        </view>
+        <view class="info">
+          <view class="title">可入住信息</view>
+          <view class="h-info">
+            <text>2020-04-02</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 房屋配置 -->
+  <view class="page_wrap bor-bot">
+    <view class="more-wrap mb6">
+      <view class="title">房屋配置</view>
+      <view class="deploy mt15">
+        <block wx:for="{{deployList}}" wx:key="index">
+          <view class="deploy-item">
+            <view class="deploy-gutter">
+              <view class="deploy-icon">
+                <image class="img" src="{{item.url}}" />
+              </view>
+              <view class="deploy-word">{{item.name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 房间 -->
+  <view class="page_wrap bor-bot">
+    <view class="more-wrap mb25">
+      <view class="title">房间</view>
+      <view class="room-info mt20">
+        <scroll-view scroll-x="true" class="scroll-view">
+          <block wx:for="{{roomInfo}}" wx:key="index">
+            <view class="scroll-item">
+              <room-tag></room-tag>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- 地址 -->
+  <view class="page_wrap bor-bot-weight">
+    <view class="more-wrap mb25">
+      <view class="title">地址</view>
+      <view class="title-sub">海淀区 双榆树</view>
+      <view class="map">
+        <map
+          id="map"
+          longitude="113.324520"
+          latitude="23.099994"
+          scale="14"
+          show-location
+          style="width: 100%; height: 360rpx;"
+        ></map>
+      </view>
+    </view>
+  </view>
+  <!-- 附近其他房源 -->
+  <view class="page_wrap">
+    <view class="more-wrap mb25">
+      <view class="title">附近其他房源</view>
+      <view class="house-list">
+        <view class="containt">
+          <view class="house-info-wrap">
+            <block wx:for="{{houseInfoList}}" wx:key="index">
+              <view class="house-info-item {{index == 0?'.no-bo':''}}">
+                <navigator url="/pages/detail/index?title=navigate">
+                  <house-info></house-info>
+                </navigator>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 咨询、收藏 -->
+  <view class="footer-wrap">
+    <view class="footer">
+      <view class="collection">
+        <view class="icon collection-icon"></view>
+        <view class="title collection-title">收藏</view>
+      </view>
+      <view class="share">
+        <view class="icon share-icon"></view>
+        <view class="title share-title">收藏</view>
+      </view>
+      <view class="advice">
+        <view class="btn">电话咨询</view>
+      </view>
+      <view class="appointment">
+        <view class="btn yy">预约看房</view>
+      </view>
+    </view>
+  </view>
+
 </template>
 
 <script lang="ts" src="./index.ts"></script>
+<style lang="scss" >
+@import "index";
+</style>
 
 <script type="application/json">
   {
+    "navigationBarTitleText": "房屋详情",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
     "usingComponents": {
+      "navigation-bar": "@/components/navigationBar/index",
+      "activity-tag": "@/components/activityTag",
+      "room-tag": "@/components/roomTag",
+      "house-info": "@/components/houseInfo"
     }
   }
 </script>

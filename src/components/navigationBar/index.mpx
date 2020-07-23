@@ -1,0 +1,86 @@
+<template>
+  <view class="containt">
+    <view
+      class="navigation-container"
+      wx:style="{{ {height: navigationBarAndStatusBarHeight+'px'} }}"
+    >
+      <!--空白来占位状态栏-->
+      <view wx:style="{{ {height: statusBarHeight+'px'} }}"></view>
+
+      <view class="navigation-bar" wx:style="{{ {height: navigationBarHeight+'px'} }}">
+        <view class="navigation-buttons" wx:style="{{ {height: menuButtonHeight+'px'} }}">
+          <view class="back-icon" bindtap="navigateBack"></view>
+          <view class="back-home-icon" bindtap="navigateBackHome"></view>
+        </view>
+        <view
+          class="navigation-title"
+          wx:style="{{ {lineHeight: navigationBarHeight+'px'} }}"
+        >{{title}}</view>
+      </view>
+    </view>
+    <!--空白占位fixed空出的位置-->
+    <view wx:style="{{ {height: statusBarHeight+'px'} }}"></view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+
+<style lang="scss">
+@import "@/style/_base";
+.navigation-container {
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  color: #000000;
+  .navigation-bar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navigation-buttons {
+    width: _rpx(87);
+    display: flex;
+    align-items: center;
+    margin-left: _rpx(7);
+    border: 1rpx solid rgba(151, 151, 151, 0.2);
+    border-radius: _rpx(16);
+    justify-content: space-around;
+    box-sizing: border-box;
+    .back-icon {
+      width: _rpx(9);
+      height: _rpx(17);
+      @include bgUrl("../../static/images/icon/icon_back@3x.png");
+      position: relative;
+      &::after {
+        content: " ";
+        width: _rpx(0.5);
+        height: _rpx(18.5);
+        background-color: rgba(151, 151, 151, 0.2);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: _rpx(17.5+9);
+      }
+    }
+    .back-home-icon {
+      width: _rpx(18);
+      height: _rpx(18);
+      @include bgUrl("../../static/images/icon/icon_backtohome@3x.png");
+    }
+  }
+  .navigation-title {
+    @include trans-center;
+    @include ellipsis;
+  }
+}
+</style>
+
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

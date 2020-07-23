@@ -1,0 +1,274 @@
+@import "@/style/_base";
+
+.banner {
+  width: 100%;
+  height: _rpx(268);
+  box-sizing: border-box;
+  position: relative;
+  .swiper-item {
+    width: 100%;
+    height: _rpx(268);
+    background-color: #ffffff;
+  }
+  .swiper-count {
+    position: absolute;
+    bottom: _rpx(5);
+    right: _rpx(20);
+    font-size: $f12;
+    color: #ffffff;
+  }
+}
+.detail-content {
+  padding: _rpx(20) 0;
+  .title {
+    font-size: $f22;
+    color: #383838;
+    margin-bottom: _rpx(10);
+    height: _rpx(30);
+    line-height: _rpx(30);
+  }
+  .price {
+    height: _rpx(28);
+    line-height: _rpx(28);
+    font-size: $f12;
+    color: #1a1a1a;
+    vertical-align: baseline;
+    text {
+      font-size: $f20;
+      color: $cblue;
+      text-align: left;
+    }
+  }
+  .tags {
+    margin-bottom: _rpx(18);
+    .activity-tag {
+      display: inline-block;
+      background-color: #f8f6f1;
+      font-size: $f10;
+      color: #936943;
+      padding: _rpx(2) _rpx(11);
+      margin-right: _rpx(8);
+      border-radius: _rpx(2);
+    }
+  }
+  .activities-wrap {
+    width: 100%;
+    height: auto;
+    padding: _rpx(12) _rpx(10) 0 _rpx(10);
+    box-shadow: 0 0 6px 0 #e2e2e2;
+    border-radius: _rpx(2);
+    overflow: hidden;
+    box-sizing: border-box;
+    .activities {
+      display: flex;
+      .act-l {
+        width: _rpx(28);
+        margin-right: _rpx(12);
+        font-size: $f14;
+        color: #333333;
+        height: _rpx(20);
+        line-height: _rpx(20);
+      }
+      .act-r {
+        .act-memo {
+          margin-bottom: _rpx(13);
+          .activity-tag {
+            display: inline-block;
+            background-color: #fde7e5;
+            font-size: $f10;
+            color: #f11400;
+            padding: _rpx(2) _rpx(8.5);
+            margin-right: _rpx(12);
+            border-radius: _rpx(2);
+            vertical-align: top;
+          }
+          .act-memo-word {
+            display: inline-block;
+            font-size: $f14;
+            color: #333333;
+            height: _rpx(20);
+            line-height: _rpx(20);
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+  .info {
+    .title {
+      font-size: $f14;
+      color: #333333;
+      height: _rpx(20);
+      line-height: _rpx(20);
+      margin-bottom: _rpx(8);
+    }
+    .h-info {
+      text {
+        font-size: $f12;
+        color: #666666;
+        margin-right: _rpx(15);
+      }
+    }
+  }
+  .info-wrap {
+    display: flex;
+    justify-content: flex-start;
+    .info {
+      flex: 1;
+    }
+  }
+}
+
+// 分割线
+.bor-bot {
+  border-bottom: 1rpx solid #e9e9e9;
+}
+.bor-bot-weight{
+    border-bottom: 20rpx solid #F4F6F7;
+}
+
+.more-wrap {
+  padding-top: _rpx(25);
+  .title {
+    font-size: $f16;
+    color: #333333;
+    height: _rpx(22);
+    line-height: _rpx(22);
+  }
+  .title-sub{
+      font-size: $f14;
+      color: #777777;
+      margin: _rpx(6) 0 _rpx(15) 0;
+  }
+  .deploy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .deploy-item {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: _rpx(19);
+      .deploy-gutter {
+        width: _rpx(52);
+        display: flex;
+        align-self: start;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .deploy-icon {
+        width: _rpx(52);
+        height: _rpx(52);
+        background-color: #ffffff;
+        .img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .deploy-word {
+        margin-top: _rpx(8);
+        font-size: $f14;
+        color: #333333;
+      }
+    }
+  }
+  .room-info {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    .scroll-view {
+      height: _rpx(80);
+    }
+    .scroll-item{
+        margin-right: _rpx(15);
+        display: inline-block;
+    }
+  }
+  .map{
+      width: 100%;
+      height: _rpx(180);
+  }
+}
+.house-list{
+    @import '@/style/_houselist';
+}
+
+
+// 底部
+.footer-wrap{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 16rpx 0 #E2E2E2;
+    .footer{
+        width: 100%;
+        height: _rpx(70);
+        background-color: #ffffff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: _rpx(13) _rpx(20) _rpx(13) _rpx(25);
+        .title{
+            font-size: _rpx(11);
+            color: #383838;
+            margin-top: 12rpx;
+        }
+        .btn{
+            width: _rpx(98);
+            height: _rpx(44);
+            box-sizing: border-box;
+            line-height: _rpx(44);
+            background-color: #ffffff;
+            color: $cblue;
+            font-size: $f14;
+            text-align: center;
+            border: 1rpx solid $cblue;
+            border-radius: 4rpx;
+            &.yy{
+                background-color: $cblue;
+                color: #ffffff;
+            }
+        }
+        .collection{
+            width: _rpx(22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: _rpx(5);
+            .collection-icon{
+                width: _rpx(22);
+                height: _rpx(19);
+                @include bgUrl('../../static/images/icon/icon_shoucang@3x.png');
+            }
+        }
+        .share{
+            width: _rpx(22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-left: _rpx(30);
+            margin-top: _rpx(5);
+            .share-icon{
+                width: _rpx(19);
+                height: _rpx(19);
+                @include bgUrl('../../static/images/icon/icon_fenxiang@3x.png');
+            }
+            .share-title{
+                width: _rpx(22);
+            }
+        }
+        .advice{
+            margin-left: _rpx(52);
+        }
+        .appointment{
+            margin-left: _rpx(10);
+        }
+    }
+}
