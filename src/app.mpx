@@ -1,18 +1,20 @@
 <script lang="ts" src="./app.ts"></script>
 <style lang="scss">
-@import './app.scss';
+@import "./app.scss";
 </style>
 <script name="json">
 module.exports = {
   pages: [
-    "./pages/detail/index",
-
     "./pages/index/index",
+    "./pages/login/index",
+    "./pages/mine/index",
+    "./pages/detail/index",
     "./pages/searchKeywords/index",
     "./pages/customizedHousing/index",
     "./pages/landlordJoining/index",
-    "./pages/mine/index",
-    ],
+    "./pages/collection/index",
+    "./pages/myAppointment/index"
+  ],
   debug: process.env.NODE_ENV !== "production",
   window: {
     navigationBarBackgroundColor: "#ffffff",
@@ -28,28 +30,30 @@ module.exports = {
     backgroundColor: "#ffffff",
     list: [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "static/images/tabbar/icon_home@3x.png",
-        "selectedIconPath": "static/images/tabbar/icon_home_selected@3x.png"
+        pagePath: "pages/index/index",
+        text: "首页",
+        iconPath: "static/images/tabbar/icon_home@3x.png",
+        selectedIconPath: "static/images/tabbar/icon_home_selected@3x.png"
       },
       {
-        "pagePath": "pages/customizedHousing/index",
-        "text": "定制房源",
-        "iconPath": "static/images/tabbar/icon_dingzhifangyuan@3x.png",
-        "selectedIconPath": "static/images/tabbar/icon_dingzhifangyuan_selected@3x.png"
+        pagePath: "pages/customizedHousing/index",
+        text: "定制房源",
+        iconPath: "static/images/tabbar/icon_dingzhifangyuan@3x.png",
+        selectedIconPath:
+          "static/images/tabbar/icon_dingzhifangyuan_selected@3x.png"
       },
       {
-        "pagePath": "pages/landlordJoining/index",
-        "text": "房东加盟",
-        "iconPath": "static/images/tabbar/icon_fangdongjiameng@3x.png",
-        "selectedIconPath": "static/images/tabbar/icon_fangdongjiameng_selected@3x.png"
+        pagePath: "pages/landlordJoining/index",
+        text: "房东加盟",
+        iconPath: "static/images/tabbar/icon_fangdongjiameng@3x.png",
+        selectedIconPath:
+          "static/images/tabbar/icon_fangdongjiameng_selected@3x.png"
       },
       {
-        "pagePath": "pages/mine/index",
-        "text": "我的",
-        "iconPath": "static/images/tabbar/icon_wode@3x.png",
-        "selectedIconPath": "static/images/tabbar/icon_wode_selected@3x.png"
+        pagePath: "pages/mine/index",
+        text: "我的",
+        iconPath: "static/images/tabbar/icon_wode@3x.png",
+        selectedIconPath: "static/images/tabbar/icon_wode_selected@3x.png"
       }
     ]
   },

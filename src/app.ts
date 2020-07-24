@@ -1,3 +1,4 @@
+/// <reference path="./type/types.d.ts" />
 import mpx, { createApp } from '@mpxjs/core'
 import apiProxy from '@mpxjs/api-proxy'
 
@@ -9,7 +10,6 @@ import '@/utils/expand'
 
 mpx.use(apiProxy, { usePromise: true })
 mpx.use(fetch);
-
 
 // app.js
 createApp({

@@ -1,0 +1,44 @@
+<template>
+  <view class="setcion_wrap">
+    <view class="tabs">
+      <block wx:for="{{tabsList}}" wx:key="index">
+        <view
+          class="tabs-item {{currentTabIndex == index ? 'actived' : '' }}"
+          bindtap="onTabsItemTap"
+          data-index="{{index}}"
+        >{{item}}</view>
+      </block>
+    </view>
+    <view class="page_wrap">
+      <view wx:show="{{currentTabIndex == 0}}" class="tabs-content">
+        <view class="tabs-content-item">
+          <view class="house-list">
+            <navigator url="/pages/detail/index?title=navigate">
+              <house-info></house-info>
+            </navigator>
+          </view>
+          <view class="operat">
+            <view class="operat-l">预约时间：03月18日 上午</view>
+            <view class="operat-r">
+              <view class="word">取消预约</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "navigationBarTitleText": "我的约看",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+      "house-info": "@/components/houseInfo"
+    }
+  }
+</script>

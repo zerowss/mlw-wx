@@ -3,7 +3,7 @@ export interface AuthResult {
   readonly status: number,
   readonly msg: string
 }
-// 查询是否授权
+// 查询是否授权-权限
 export const isAuth = (auth: AuthSettingOption) => {
   return new Promise((resolve, reject) => {
     wx.getSetting({
@@ -44,7 +44,7 @@ export const authorize = (auth: AuthSettingOption) => {
           },
           fail() {
             // 拒绝授权
-            reject({ status: 0, msg: "拒绝授权" })
+            resolve({ status: 0, msg: "拒绝授权" })
           }
         })
       } else {
@@ -73,6 +73,46 @@ export const getCity = (res: any) => {
       },
       fail(err) {
         reject(err)
+      }
+    })
+  })
+}
+
+// 查询是否授权-登录过期
+export const isAuthLogin = () => {
+  return new Promise((resolve, reject) => {
+    wx.checkSession({
+      success() {
+        //session_key 未过期，并且在本生命周期一直有效
+        resolve({ status: 1, msg: "登录未过期" })
+      },
+      fail() {
+        // session_key 已经失效，需要重新去登录界面登录
+        resolve({ status: 0, msg: "登录过期" })
+      }
+    })
+  })
+}
+
+// 获取用户信息
+export const getUserInfo = () => {
+  return new Promise((resolve, reject) => {
+    isAuthLogin().then((res: AuthResult) => {
+      if (res.status === 1) {
+        wx.getUserInfo({
+          withCredentials: true,
+          success(result: WechatMiniprogram.GetUserInfoSuccessCallbackResult) {
+            console.log(result, 'userinfo');
+            const userInfo = result.userInfo
+            wx.setStorageSync('userInfo', userInfo)
+            resolve(result)
+          },
+          fail() {
+            resolve({ status: 0, msg: "获取用户信息失败" })
+          }
+        })
+      }else{
+        resolve({ status: 0, msg: "获取用户信息失败" })
       }
     })
   })

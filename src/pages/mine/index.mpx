@@ -1,12 +1,59 @@
 <template>
-  <view>我的</view>
+  <view class="page_wrap bor_top bor_bot_weight">
+    <view class="auth">
+      <view class="auth-info">
+        <view class="login" bindtap="login">
+          <view class="word">{{isLogin?userInfo.nickName:'点击注册/登录'}}</view>
+          <view class="word-sub">
+            <block wx:if="{{isLogin}}">
+              <text>18811112222</text>
+            </block>
+            <block wx:else>
+              <text>因为美丽屋</text>
+              <text>爱上一座城</text>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="auth-img">
+        <image class="img" src="{{avatarUrl}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page_wrap">
+    <view class="list">
+      <block wx:for="{{menuList}}" wx:key="index">
+        <van-cell
+          border="{{false}}"
+          custom-class="list-item"
+          is-link
+          title="{{item.name}}"
+          link-type="navigateTo"
+          url="{{item.path}}"
+        />
+      </block>
+    </view>
+  </view>
+
+  <view class="page_wrap" wx:if="{{isLogin}}">
+    <view class="sign-out">
+      <view class="btn">退出登录</view>
+    </view>
+  </view>
 </template>
 
 <script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
 
 <script type="application/json">
   {
+    "navigationBarTitleText": "我的",
+    "enablePullDownRefresh": false,
     "usingComponents": {
+      "van-cell": "@vant/weapp/dist/cell/index"
     }
   }
 </script>

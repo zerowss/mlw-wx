@@ -1,4 +1,5 @@
 import { createComponent } from '@mpxjs/core'
+import { _statusColors } from "@/config"
 createComponent({
     properties: {
         houseInfo: {
@@ -8,9 +9,11 @@ createComponent({
             }
         }
     },
-    data: {  },
+    data: {
+        _statusColors
+    },
     computed: {
-        isShowTags(){
+        isShowTags() {
             return this.houseInfo.tags && this.houseInfo.tags.length > 0;
         }
     },

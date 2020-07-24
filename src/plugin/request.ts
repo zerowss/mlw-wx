@@ -2,9 +2,9 @@
 import { domain } from '@/config'
 
 type TMethod = 'GET' | 'POST'
-interface IParams {
+export interface IParams {
   readonly url: string;
-  method: TMethod;
+  method?: TMethod;
   data?: any;
   flag?: boolean;
 }
@@ -58,10 +58,10 @@ function post(obj: IParams) {
 }
 
 
-export default function fetch(proxyMPX: any) {
-  proxyMPX.prototype.fetch = request
-  proxyMPX.prototype.get = get
-  proxyMPX.prototype.post = post
+export default function install(proxyMPX: any) {
+  proxyMPX.prototype.$fetch = request
+  proxyMPX.prototype.$get = get
+  proxyMPX.prototype.$post = post
 }
 
 

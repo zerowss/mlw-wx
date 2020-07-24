@@ -1,7 +1,11 @@
-
+// es6语法不兼容 ~~ 
 module.exports = {
-    // 是否在数组中
-    isInArray:function(array, value){
-        return array.indexOf(value) > -1
+  getStatusColor: function (val, colors) {
+    for (var index = 0; index < colors.length; index++) {
+      var element = colors[index];
+      if (val === element.name) {
+        return element.color;
+      }
     }
-}
+  },
+};

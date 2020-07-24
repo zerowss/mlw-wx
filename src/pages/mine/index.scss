@@ -1,0 +1,73 @@
+@import "@/style/_base";
+
+.auth {
+  width: 100%;
+  height: _rpx(94);
+  position: relative;
+  .auth-info {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: _rpx(24) 0 0 _rpx(20);
+    .login {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .word {
+        font-size: $f20;
+        color: #383838;
+      }
+      .word-sub {
+        font-size: $f12;
+        color: $cblue;
+        text {
+          margin-right: _rpx(10);
+        }
+      }
+    }
+  }
+  .auth-img {
+    position: absolute;
+    top: 40rpx;
+    right: 40rpx;
+    width: _rpx(54);
+    height: _rpx(54);
+    border-radius: 50%;
+    overflow: hidden;
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.list {
+  .list-item {
+    height: _rpx(60);
+    line-height: _rpx(60);
+    padding: 0;
+    font-size: $f14;
+    color: #383838;
+    border-bottom: 1rpx solid #e9e9e9;
+    .van-cell__right-icon-wrap {
+      height: _rpx(60);
+      line-height: _rpx(60);
+    }
+  }
+}
+
+.sign-out {
+  width: 100%;
+  height: _rpx(44);
+  background: #ffffff;
+  box-shadow: 0 0 12rpx 0 #e2e2e2;
+  border-radius: 2rpx;
+  margin: _rpx(22) 0 _rpx(55) 0;
+  .btn{
+      width: 100%;
+      line-height: _rpx(44);
+      font-size: $f14;
+      color: #F11400;
+      text-align: center;
+  }
+}

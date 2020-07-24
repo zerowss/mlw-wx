@@ -1,4 +1,5 @@
 <template>
+  <wxs src="../../wxs/index.wxs" module="tools" />
   <view class="house-info-wrap">
     <view class="house-info-l">
       <van-image width="100%" height="100%" lazy-load src="https://img.yzcdn.cn/vant/cat.jpeg" />
@@ -9,20 +10,14 @@
       <view class="info-tags">
         <view wx:if="isShowTags">
           <block wx:for="{{houseInfo.tags}}" wx:key="index">
-            <activity-tag
-              activity-name="年付免1月"
-              height="14"
-              font-size="10"
-              bg-color="#FDE7E5"
-              w-color="#F11400"
-              padding="{{[2,6]}}"
-            ></activity-tag>
+            <activity-tag activity-name="年付免1月"></activity-tag>
           </block>
         </view>
       </view>
       <view class="info-price">
         <text class="p">￥2300</text>
         <text class="u">/月</text>
+        <view class="house-status" style="color: {{tools.getStatusColor('已出租',_statusColors)}}">已出租</view>
       </view>
     </view>
   </view>
@@ -38,6 +33,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &.invalid {
+    view,
+    text {
+      color: #999999 !important;
+    }
+  }
   .house-info-l {
     width: _rpx(132);
     height: _rpx(97);
@@ -71,6 +72,7 @@
       color: #1a1a1a;
       margin-bottom: 0;
       height: _rpx(18);
+      position: relative;
       .p {
         font-size: $f18;
         color: $cblue;
@@ -81,6 +83,13 @@
       }
       .u {
         vertical-align: baseline;
+      }
+      .house-status {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: $f12;
+        margin-bottom: 0;
       }
     }
   }

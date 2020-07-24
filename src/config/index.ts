@@ -15,14 +15,29 @@ export enum AuthSettingOption {
 }
 
 // 区分测试/线上接口
-export const domain = process.env.NODE_ENV !== "production" ? 'https://third.mlwplus.com' : 'https://third.mlwplus.com'
+export const domain = process.env.NODE_ENV !== "production" ? 'https://thirdtest.mlwplus.com' : 'https://third.mlwplus.com/'
 
 // 百度地图api
 export const _BAIDU = {
-    url: 'http://api.map.baidu.com/geocoder/v2/',
+    url: 'http://api.map.baidu.com/geocoder/v2/',  // 根据坐标解析城市api
     ak: 'zmVwTKkuEXmcbmEtznL6Ip4EMspC2DWH',
     // ak: 'L72bAq4FTA4LMak2AVPg2bTtS22S3w1K'
 }
 
+// 房屋状态
+export const _statusColors = [
+    {
+        name: '出租中',
+        color: '#069991'
+    },
+    {
+        name: '无效',
+        color: '#999999'
+    },
+    {
+        name: '已出租',
+        color: '#F11400'
+    }
+]
 
 

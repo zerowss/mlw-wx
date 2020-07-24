@@ -1,0 +1,61 @@
+@import "@/style/_base";
+
+.tabs {
+  display: flex;
+  height: 80rpx;
+  justify-content: center;
+  align-items: center;
+  .tabs-item {
+    flex: 1;
+    font-size: 28rpx;
+    color: #383838;
+    text-align: center;
+    position: relative;
+    &.actived {
+      &::after {
+        content: " ";
+        width: 56rpx;
+        height: 4rpx;
+        background-color: #069991;
+        position: absolute;
+        top: 44rpx;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+.tabs-content {
+  margin-top: 40rpx;
+  .tabs-content-item {
+    width: 100%;
+    // height: _rpx(161);
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.1);
+    border-radius: 12rpx;
+  }
+  .operat {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 _rpx(15);
+    .operat-l {
+      float: left;
+      font-size: $f12;
+      color: #333333;
+    }
+    .operat-r {
+      float: right;
+      font-size: $f12;
+      color: #333333;
+    }
+  }
+}
+.house-list {
+  padding: _rpx(15) _rpx(15) _rpx(12) _rpx(15);
+  border-bottom: 1rpx solid #e9e9e9;
+  @import "@/style/_houselist";
+}

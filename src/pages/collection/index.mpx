@@ -1,0 +1,32 @@
+<template>
+  <view class="page_wrap">
+    <view class="house-list">
+      <view class="containt">
+        <view class="house-info-wrap">
+          <block wx:for="{{houseInfoList}}" wx:key="index">
+            <view class="house-info-item {{index == 0?'.no-bo':''}}">
+              <navigator url="/pages/detail/index?title=navigate">
+                <house-info></house-info>
+              </navigator>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+
+<script type="application/json">
+  {
+    "navigationBarTitleText": "收藏",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+      "house-info": "@/components/houseInfo"
+    }
+  }
+</script>
