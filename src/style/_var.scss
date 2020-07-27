@@ -1,29 +1,36 @@
 //设计稿375 适配750
-$v:2rpx;
-@function _rpx($n){
-    @return #{$n*2}rpx;
+$v: 2rpx;
+@function _rpx($n) {
+  @return #{$n * 2}rpx;
+}
+
+// 导入cdn
+$cdn_base_path: "http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/";
+
+@function _cdn($url) {
+  @return "#{$cdn_base_path}#{$url}.png";
 }
 
 // 背景色
 $bg: #ffffff;
 
 // 字号
-$f22: 22*$v;
-$f20: 20*$v;
-$f18: 18*$v;
-$f16: 16*$v;
-$f14: 14*$v;
-$f12: 12*$v;
-$f10: 10*$v;
+$f22: 22 * $v;
+$f20: 20 * $v;
+$f18: 18 * $v;
+$f16: 16 * $v;
+$f14: 14 * $v;
+$f12: 12 * $v;
+$f10: 10 * $v;
 
 // 颜色
 $cblack: #333333;
 $cblack-light: #666666;
 $cblack-light-less: #999999;
-$cblack-light-most: #B5B5B5;
+$cblack-light-most: #b5b5b5;
 $cblue: #069991;
-$cred: #F11400;
-$cred-light:#936943;
+$cred: #f11400;
+$cred-light: #936943;
 
 // 按钮颜色
 $btn-bg: #ffffff;
@@ -35,21 +42,19 @@ $btn-active-word: #ffffff;
 $btn-active-border: $cblue;
 
 // 分割线
-$line-fine: #E9E9E9;
-$line-crude: #F4F6F7;
+$line-fine: #e9e9e9;
+$line-crude: #f4f6f7;
 
 // 标签
-$label-normal: #F8F6F1;
-$label-warning: #FDE7E5;
-$label-success: #EFF3F6;
+$label-normal: #f8f6f1;
+$label-warning: #fde7e5;
+$label-success: #eff3f6;
 
 // 活动标签
-$tag-activity-bg: #F3F9F9;
+$tag-activity-bg: #f3f9f9;
 $tag-activity-word: #333333;
 $tag-activity-slected-word: #069991;
 
 // 圆角
 $border-radius: _rpx(4);
-$border-color: #E2E2E2;
-
-
+$border-color: #e2e2e2;

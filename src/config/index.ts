@@ -15,7 +15,25 @@ export enum AuthSettingOption {
 }
 
 // 区分测试/线上接口
-export const domain = process.env.NODE_ENV !== "production" ? 'https://thirdtest.mlwplus.com' : 'https://third.mlwplus.com/'
+export const domain = process.env.NODE_ENV !== "production" ? 'https://thirdtest.mlwplus.com' : 'https://third.mlwplus.com'
+
+// cdn域名
+export const _cdnUrl = 'http://xeme.oss-cn-shanghai.aliyuncs.com'
+
+// 区分h5测试/线上域名
+export const _h5 = process.env.NODE_ENV !== "production" ? 'http://bj.m.t.iron.mlwplus.com' : 'http://m.meiliwu.com'
+
+// 统一管理web-view引入路径
+interface IH5PagesUrl {
+    readonly [key: string]: string
+}
+export const _h5pagesurl: IH5PagesUrl = {
+    customizedHousing: _h5 + '/app/lkathouse', // 定制房源
+    landlordJoining: _h5 + '/owner', // 房东加盟
+    serviceAgreement: _h5 + '/app/userservice', // 用户服务协议
+    privacyPolicy: _h5 + '/app/privacypolicy', // 隐私政策
+    companyProfile: _h5 + '/index/aboutus', // 公司简介
+}
 
 // 百度地图api
 export const _BAIDU = {
@@ -39,5 +57,3 @@ export const _statusColors = [
         color: '#F11400'
     }
 ]
-
-

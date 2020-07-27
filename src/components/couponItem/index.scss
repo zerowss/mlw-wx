@@ -1,0 +1,119 @@
+@import "@/style/_base";
+
+.c-wrap {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0 0 20rpx 0 #e2e2e2;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  .c-top {
+    width: 100%;
+    height: _rpx(88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx dashed #e2e2e2;
+    .c-top-l {
+      width: _rpx(89);
+      height: _rpx(88);
+      @include bgUrl(
+        "http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/background_coupon_normal.png"
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .l-tit {
+        font-size: _rpx(26);
+        color: #ffffff;
+        text-align: center;
+        height: _rpx(26);
+        line-height: _rpx(26);
+        margin-bottom: 6rpx;
+        .l-unit {
+          font-size: 28rpx;
+          color: #ffffff;
+          display: inline-block;
+        }
+      }
+      .l-memo {
+        font-size: 22rpx;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+    .c-top-r {
+      flex: 1;
+      box-sizing: border-box;
+      padding: _rpx(18) 0 0 _rpx(23);
+      align-self: flex-start;
+      position: relative;
+      .r-tit {
+        font-size: 32rpx;
+        color: #333333;
+        margin-bottom: 20rpx;
+        line-height: _rpx(22);
+      }
+      .r-memo {
+        font-size: 28rpx;
+        color: #999999;
+        line-height: _rpx(20);
+      }
+      .r-status{
+        position: absolute;
+        width: _rpx(46);
+        height: _rpx(56);
+        top: _rpx(12);
+        right: 0;
+        overflow: hidden;
+      }
+    }
+  }
+  .c-bot {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: _rpx(8) _rpx(32) _rpx(8) _rpx(15);
+    position: relative;
+    .bot-memo {
+      font-size: $f12;
+      color: #999999;
+      &.no-more {
+        height: _rpx(16);
+        @include ellipsis;
+      }
+      &.show-more {
+        height: auto;
+        word-break: break-all;
+        overflow: auto;
+      }
+    }
+    .bot-icon {
+      position: absolute;
+      width: _rpx(8);
+      height: _rpx(4);
+      top: 30rpx;
+      right: 26rpx;
+      @include bgUrl("../../static/images/icon/icon_more_down@3x.png");
+      &.actived {
+        @include bgUrl("../../static/images/icon/icon_more_up@3x.png");
+      }
+    }
+  }
+  &.c-disabled {
+    // @include gray-web;
+    .c-top {
+      .c-top-l {
+        @include bgUrl(_cdn('background_coupon_disabled'))
+      }
+      .c-top-r {
+        .r-tit {
+          color: #999999;
+        }
+      }
+    }
+  }
+  
+}

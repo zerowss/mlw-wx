@@ -6,7 +6,18 @@ createPage({
   },
   data: {
     menuList,
-    userInfo: '' as any
+    userInfo: '' as any,
+    phone_actions: [
+      {
+        name: '400-123-1234',
+        disabled: true,
+        color: '#333333'
+      },
+      {
+        name: '呼叫'
+      }
+    ],
+    is_phone_show: false
   },
   computed: {
     isLogin() {
@@ -23,6 +34,21 @@ createPage({
       }
       wx.navigateTo({
         url: '/pages/login/index'
+      })
+    },
+    showPhoneCall(item: any) {
+      if (item.name === '租房咨询') {
+        this.is_phone_show = true
+      }
+    },
+    closePhoneCall() {
+      this.is_phone_show = false
+    },
+    makePhoneCall(e: any) {
+      console.log(e);
+
+      wx.makePhoneCall({
+        phoneNumber: '4001231234'
       })
     }
   }

@@ -14,7 +14,7 @@ export const menuList = [
     },
     {
         name: '租房咨询',
-        path: '/pages/rentConsultation/index'
+        path: ''
     },
     {
         name: '关于美丽屋',

@@ -1,0 +1,35 @@
+<template>
+  <view class="c-wrap {{is_disabled?'c-disabled':''}}">
+    <view class="c-top">
+      <view class="c-top-l">
+        <view class="l-tit">
+          <view class="l-unit">￥</view>888
+        </view>
+        <view class="l-memo">满10000可用</view>
+      </view>
+      <view class="c-top-r">
+        <view class="r-tit">满减券</view>
+        <view class="r-memo">有效期至2020/05/05</view>
+        <view class="r-status">
+          <image src="{{statusImgUrl}}" />
+        </view>
+      </view>
+    </view>
+    <view class="c-bot" bindtap="showMore">
+      <view class="bot-memo {{is_show_more?'show-more':'no-more'}}">
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      </view>
+      <view class="bot-icon {{is_show_more?'actived':''}}"></view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

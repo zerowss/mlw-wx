@@ -13,7 +13,13 @@ module.exports = {
     "./pages/customizedHousing/index",
     "./pages/landlordJoining/index",
     "./pages/collection/index",
-    "./pages/myAppointment/index"
+    "./pages/myAppointment/index",
+    "./pages/coupon/index",
+    "./pages/couponHistory/index",
+    "./pages/aboutUs/index",
+    "./pages/aboutUsSub/serviceAgreement/index",
+    "./pages/aboutUsSub/privacyPolicy/index",
+    "./pages/aboutUsSub/companyProfile/index"
   ],
   debug: process.env.NODE_ENV !== "production",
   window: {

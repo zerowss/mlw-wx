@@ -1,7 +1,7 @@
 import { createPage } from '@mpxjs/core'
-
+import { _h5pagesurl } from '@/config'
 createPage({
-  onLoad () {
-    //
+  data: {
+    url: _h5pagesurl.customizedHousing
   }
 })

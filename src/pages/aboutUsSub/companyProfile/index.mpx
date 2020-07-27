@@ -6,7 +6,7 @@
 
 <script type="application/json">
   {
-    "navigationBarTitleText": "定制房源",
+    "navigationBarTitleText": "公司简介",
     "enablePullDownRefresh": false
   }
 </script>

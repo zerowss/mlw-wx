@@ -1,0 +1,52 @@
+@import "@/style/_base";
+
+.no-data {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .img {
+    display: block;
+    width: _rpx(124);
+    height: _rpx(109);
+    margin-bottom: 20rpx;
+  }
+  .memo {
+    font-size: $f16;
+    color: #b5b5b5;
+    text-align: center;
+  }
+}
+.instructions {
+  width: 100%;
+  height: _rpx(32);
+  background: rgba(234, 85, 80, 0.05);
+  position: relative;
+  margin-bottom: 40rpx;
+  .inst-icon {
+    width: 28rpx;
+    height: 28rpx;
+    @include bgUrl("../../static/images/icon/icon_shiyongshuoming@3x.png");
+    position: absolute;
+    left: 40rpx;
+    top: 18rpx;
+  }
+  .inst-word {
+    padding-left: 80rpx;
+    line-height: _rpx(32);
+    font-size: $f14;
+    color: #999999;
+  }
+}
+.history {
+  width: 100%;
+  text-align: center;
+  font-size: $f14;
+  color: #999999;
+  text-decoration-line: underline;
+  height: 24rpx;
+  line-height: 24rpx;
+  margin-top: _rpx(18);
+}

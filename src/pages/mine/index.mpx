@@ -31,8 +31,17 @@
           title="{{item.name}}"
           link-type="navigateTo"
           url="{{item.path}}"
+          bind:click="showPhoneCall(item)"
         />
       </block>
+      <van-action-sheet
+        bind:cancel="closePhoneCall"
+        round="{{false}}"
+        bind:select="makePhoneCall"
+        show="{{ is_phone_show }}"
+        actions="{{ phone_actions }}"
+        cancel-text="取消"
+      />
     </view>
   </view>
 
@@ -53,7 +62,8 @@
     "navigationBarTitleText": "我的",
     "enablePullDownRefresh": false,
     "usingComponents": {
-      "van-cell": "@vant/weapp/dist/cell/index"
+      "van-cell": "@vant/weapp/dist/cell/index",
+      "van-action-sheet": "@vant/weapp/dist/action-sheet/index"
     }
   }
 </script>

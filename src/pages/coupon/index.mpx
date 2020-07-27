@@ -1,0 +1,35 @@
+<template>
+  <!-- <view class="no-data">
+    <image class="img" src="{{no_data_img}}" />
+    <view class="memo">暂无优惠券</view>
+  </view>-->
+  <view class="setcion_wrap">
+    <view class="instructions">
+      <view class="inst-icon"></view>
+      <view class="inst-word">优惠券使用说明</view>
+    </view>
+
+    <view class="page_wrap">
+      <block wx:for="{{couponList}}" wx:key="index">
+        <view class="mt15">
+          <coupon-item></coupon-item>
+        </view>
+      </block>
+      <view class="history" bindtap="toCouponHistory">查看历史优惠券</view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "navigationBarTitleText": "优惠券",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+      "coupon-item": "@/components/couponItem"
+    }
+  }
+</script>

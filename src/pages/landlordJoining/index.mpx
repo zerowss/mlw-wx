@@ -1,12 +1,12 @@
 <template>
-  <view>房东加盟</view>
+  <web-view src="{{url}}"></web-view>
 </template>
 
 <script lang="ts" src="./index.ts"></script>
 
 <script type="application/json">
   {
-    "usingComponents": {
-    }
+    "navigationBarTitleText": "房东加盟",
+    "enablePullDownRefresh": false
   }
 </script>

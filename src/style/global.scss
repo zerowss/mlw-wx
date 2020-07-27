@@ -1,54 +1,59 @@
-@import 'base';
+@import "base";
 
 // 定义全局样式 下划线_标识 区分
-.setcion_wrap{
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
+.setcion_wrap {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
-.page_wrap{
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 0 _rpx(20);
-    background-color: $bg;
+.page_wrap {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 _rpx(20);
+  background-color: $bg;
+}
+image {
+  width: 100%;
+  height: 100%;
 }
 
 // flex
-.flex_center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // 分割线
-.bor_bot{
-    border-bottom: 1rpx solid #F4F6F7;
+.bor_bot {
+  border-bottom: 1rpx solid #f4f6f7;
 }
-.bor_bot_weight{
-    border-bottom: 20rpx solid #F4F6F7;
-}
-
-.bor_top{
-    border-top: 1rpx solid #F4F6F7;
+.bor_bot_weight {
+  border-bottom: 20rpx solid #f4f6f7;
 }
 
+.bor_top {
+  border-top: 1rpx solid #f4f6f7;
+}
 
 // margin
-.mt15{
-    margin-top: _rpx(15);
+.mt15 {
+  margin-top: _rpx(15);
 }
-.mt20{
-    margin-top: _rpx(20);
+.mt20 {
+  margin-top: _rpx(20);
 }
-.mt25{
-    margin-top: _rpx(25);
-}
-
-.mb6{
-    margin-bottom: _rpx(6);
+.mt25 {
+  margin-top: _rpx(25);
 }
 
-.mb25{
-    margin-bottom: _rpx(25);
+.mb6 {
+  margin-bottom: _rpx(6);
+}
+.mt15 {
+  margin-bottom: _rpx(15);
+}
+.mb25 {
+  margin-bottom: _rpx(25);
 }
