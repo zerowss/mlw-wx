@@ -12,4 +12,11 @@ declare module '@mpxjs/core' {
         $get: (p: IParams) => Promise<any>;
         $fetch: (p: IParams) => Promise<any>;
     }
+    interface IMixin {
+        data?: any;
+        properties?: any;
+        computed?: any;
+        methods?: any;
+        [key: string]: any
+    }
 }

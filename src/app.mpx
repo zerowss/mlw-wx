@@ -30,6 +30,7 @@ module.exports = {
     backgroundTextStyle: "light"
   },
   tabBar: {
+    // custom: true,
     color: "#333333",
     selectedColor: "#069991",
     borderStyle: "black",

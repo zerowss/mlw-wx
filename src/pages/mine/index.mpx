@@ -35,6 +35,7 @@
         />
       </block>
       <van-action-sheet
+        class="action-sheet"
         bind:cancel="closePhoneCall"
         round="{{false}}"
         bind:select="makePhoneCall"
@@ -47,7 +48,7 @@
 
   <view class="page_wrap" wx:if="{{isLogin}}">
     <view class="sign-out">
-      <view class="btn">退出登录</view>
+      <view class="btn" bindtap="loginOut">退出登录</view>
     </view>
   </view>
 </template>

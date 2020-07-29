@@ -1,8 +1,14 @@
 import { createPage } from '@mpxjs/core'
 import { menuList } from './data'
+import { getCdnUrl, toast } from '@/utils/tools'
 createPage({
   onLoad() {
     this.userInfo = wx.getStorageSync('userInfo')
+  },
+  onShow() {
+    // if (typeof this.getTabBar === 'function') {
+    //   this.getTabBar().init(3)
+    // }
   },
   data: {
     menuList,
@@ -24,7 +30,7 @@ createPage({
       return this.userInfo ? true : false
     },
     avatarUrl() {
-      return this.userInfo ? this.userInfo.avatarUrl : 'http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/img_touxiang.png'
+      return this.userInfo ? this.userInfo.avatarUrl : getCdnUrl('img_touxiang')
     }
   },
   methods: {
@@ -35,6 +41,25 @@ createPage({
       wx.navigateTo({
         url: '/pages/login/index'
       })
+    },
+    loginOut() {
+      this.$get({
+        url: '/customer/logout',
+        data: {
+          id: '1'
+        },
+        flag: true
+      }).then(res => {
+        wx.nextTick(() => {
+          toast('已退出')
+        })
+        wx.setStorageSync('userInfo','')
+        // 重载页面
+        wx.reLaunch({
+          url: "/pages/mine/index"
+        })
+      })
+
     },
     showPhoneCall(item: any) {
       if (item.name === '租房咨询') {

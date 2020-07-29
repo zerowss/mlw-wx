@@ -1,0 +1,44 @@
+<template>
+  <cover-view class="tab-bar">
+    <van-tabbar
+      active-color="{{selectedColor}}"
+      inactive-color="{{color}}"
+      active="{{ active }}"
+      bind:change="onChange"
+    >
+      <van-tabbar-item wx:for="{{list}}" wx:key="index">
+        <image
+          slot="icon"
+          src="{{ item.iconPath }}"
+          mode="aspectFit"
+          style="width: 40rpx; height: 40rpx;"
+        />
+        <image
+          slot="icon-active"
+          src="{{ item.selectedIconPath }}"
+          mode="aspectFit"
+          style="width: 40rpx; height: 40rpx;"
+        />
+        <view class="text">{{item.text}}</view>
+      </van-tabbar-item>
+    </van-tabbar>
+  </cover-view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+.text {
+  font-size: 18rpx;
+  color: #333333;
+  padding-top: 2rpx;
+}
+</style>
+<script type="application/json">
+  {
+    "component": true,
+    "usingComponents": {
+      "van-tabbar": "@vant/weapp/dist/tabbar/index",
+      "van-tabbar-item": "@vant/weapp/dist/tabbar-item/index"
+    }
+  }
+</script>

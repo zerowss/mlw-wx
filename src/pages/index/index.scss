@@ -5,7 +5,7 @@
   background-color: #ffffff;
   padding: _rpx(20) _rpx(20) 0 _rpx(20);
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   z-index: 999;
   .header-search {
@@ -18,24 +18,25 @@
     .search-city {
       @include box(73.5);
       display: flex;
-      .city-name{
+      .city-name {
         font-size: $f14;
         color: $cblue;
         height: _rpx(20);
         line-height: _rpx(20);
         padding: _rpx(8) 0 0 _rpx(15);
         flex: 1;
+        @include ellipsis;
       }
-      .city-icon-wrap{
+      .city-icon-wrap {
         width: _rpx(22.5);
         display: flex;
         justify-content: flex-start;
         align-items: center;
       }
-      .city-icon{
+      .city-icon {
         width: _rpx(9);
         height: _rpx(5);
-        @include bgUrl('../../static/images/icon/arrow_down@3x.png');
+        @include bgUrl("../../static/images/icon/arrow_down@3x.png");
       }
     }
     .search-key {
@@ -59,14 +60,14 @@
         top: _rpx(11);
         right: _rpx(10);
       }
-      .search-keywords{
+      .search-keywords {
         font-size: $f14;
         height: _rpx(36);
         line-height: _rpx(36);
         text-indent: _rpx(41.5);
         text-align: left;
-        color: #B5B5B5;
-        &.active{
+        color: #b5b5b5;
+        &.active {
           color: #333333;
         }
       }
@@ -80,16 +81,25 @@
   background-color: $bg;
   .banner {
     width: 100%;
-    height: _rpx(159);
-    padding: _rpx(6) 0 _rpx(10) 0; // 阴影部分预留
+    // height: _rpx(158);
+    // padding: _rpx(8) _rpx(4) _rpx(8) _rpx(4); // 阴影部分预留
     box-sizing: border-box;
-    @include bgUrl(
-      "http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/background_banner.png"
-    );
+    border-radius: 20rpx;
+    // @include bgUrl(
+    //   "http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/background_banner.png"
+    // );
+    @include box-shadow;
     .swiper-item {
       width: 100%;
       height: _rpx(143);
       background-color: #ffffff;
+      border-radius: 20rpx;
+
+      image {
+        width: 100%;
+        height: 100%;
+        border-radius: 20rpx;
+      }
     }
   }
   .menu-tabs {
@@ -165,7 +175,7 @@
     }
     .activity-tag {
       @include activitytag;
-      &.activited-tag{
+      &.activited-tag {
         color: $cblue;
       }
     }
@@ -177,9 +187,71 @@
       padding: _rpx(20) 0 _rpx(16) 0;
       border-top: 1rpx solid $line-fine;
     }
-    .no-bo{
+    .no-bo {
       border-top: none;
       padding: _rpx(10) 0 _rpx(16) 0;
     }
   }
+}
+
+// 搜索样式
+.s-tag {
+  padding: 0 _rpx(15) _rpx(15) _rpx(15);
+  .s-tag-item {
+    margin-bottom: _rpx(16);
+  }
+  .tag-title {
+    font-size: $f14;
+    color: #333333;
+    width: 100%;
+    height: _rpx(20);
+    text-align: left;
+  }
+  .tags-wrap {
+    margin-top: _rpx(15);
+    .stag {
+      width: 100%;
+      height: _rpx(28);
+      line-height: _rpx(28);
+      border: 1rpx solid #d8d8d8;
+      box-sizing: border-box;
+      font-size: $f14;
+      color: #2a2a2a;
+      text-align: center;
+      margin-bottom: _rpx(10);
+      &.actived {
+        background-color: rgba(6, 153, 145, 0.1);
+        color: #069991;
+        border: 1rpx solid #069991;
+      }
+    }
+  }
+  .stag-btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      display: inline-block;
+      height: _rpx(42);
+      line-height: _rpx(42);
+      text-align: center;
+      border-radius: 4rpx;
+      box-sizing: border-box;
+      &-primary {
+        color: #ffffff;
+        background-color: #069991;
+      }
+      &-default {
+        border: 1px solid #dcdcdc;
+        font-size: $f14;
+        color: #333333;
+      }
+    }
+  }
+}
+.w122{
+  width: _rpx(122);
+}
+.w208{
+  width: _rpx(208);
 }

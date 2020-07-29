@@ -22,6 +22,7 @@ export const _cdnUrl = 'http://xeme.oss-cn-shanghai.aliyuncs.com'
 
 // 区分h5测试/线上域名
 export const _h5 = process.env.NODE_ENV !== "production" ? 'http://bj.m.t.iron.mlwplus.com' : 'http://m.meiliwu.com'
+// export const _h5 = 'http://m.meiliwu.com'
 
 // 统一管理web-view引入路径
 interface IH5PagesUrl {

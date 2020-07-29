@@ -1,4 +1,4 @@
-// es6语法不兼容 ~~ 
+// es6语法不兼容 ~~
 module.exports = {
   getStatusColor: function (val, colors) {
     for (var index = 0; index < colors.length; index++) {
@@ -7,5 +7,20 @@ module.exports = {
         return element.color;
       }
     }
+  },
+  // 处理下拉菜单options字段
+  dropdownOptions: function (arr, isAll) {
+    var _arr = [];
+    for (var index = 0; index < arr.length; index++) {
+      var el = arr[index];
+      if (isAll && el.title === "不限") {
+        continue;
+      }
+      _arr.push({
+        text: el.title,
+        value: el.value,
+      });
+    }
+    return _arr;
   },
 };

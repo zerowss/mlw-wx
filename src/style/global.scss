@@ -5,6 +5,7 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  padding-bottom: 48px;
 }
 .page_wrap {
   width: 100%;
@@ -56,4 +57,9 @@ image {
 }
 .mb25 {
   margin-bottom: _rpx(25);
+}
+
+// 自定义tabbar底部预留48px
+.tabbar_pb48{
+  padding-bottom: 48px;
 }

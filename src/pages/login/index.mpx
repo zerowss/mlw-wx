@@ -3,7 +3,7 @@
     <image class="img" src="../../static/images/icon/login_logo@3x.png" />
   </view>
   <view class="login-tip">
-    <text wx:if="{{!is_bind_tel}}" >首次使用微信登录，请绑定手机号</text>
+    <text wx:if="{{is_bind_tel == false}}" >首次使用微信登录，请绑定手机号</text>
   </view>
   <view class="login-btn">
     <button

@@ -54,6 +54,9 @@
       line-height: _rpx(60);
     }
   }
+  .action-sheet {
+    --safe-area-inset-bottom: 48px;
+  }
 }
 
 .sign-out {
@@ -63,11 +66,11 @@
   box-shadow: 0 0 12rpx 0 #e2e2e2;
   border-radius: 2rpx;
   margin: _rpx(22) 0 _rpx(55) 0;
-  .btn{
-      width: 100%;
-      line-height: _rpx(44);
-      font-size: $f14;
-      color: #F11400;
-      text-align: center;
+  .btn {
+    width: 100%;
+    line-height: _rpx(44);
+    font-size: $f14;
+    color: #f11400;
+    text-align: center;
   }
 }

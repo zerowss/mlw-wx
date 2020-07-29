@@ -15,6 +15,7 @@ mpx.use(fetch);
 createApp({
   globalData: {} as IGlobData,
   onLaunch() {
+    // wx.hideTabBar({})
     const _that = this;
     console.log('0');
 
@@ -28,7 +29,7 @@ createApp({
             console.log(result, 'location');
             getCity(result).then((cityInfo: any) => {
               let city_name = cityInfo.data.result.addressComponent.city as string
-              city_name = city_name.replace('市','')
+              city_name = city_name.replace('市', '')
               _that.globalData.cityName = city_name
               wx.setStorageSync('cityName', city_name)
             }).catch(err => {
