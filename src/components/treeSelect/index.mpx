@@ -1,0 +1,77 @@
+<template>
+  <view class="tree-wrap">
+    <view wx:class="{{subjectClass}}">
+      <block wx:for="{{subject}}" wx:key="index">
+        <view
+          bindtap="handleSubject"
+          wx:class="tree-item {{subject_selected == item.value?'actived':''}}"
+          data-value="{{item.value}}"
+        >{{item.title}}</view>
+      </block>
+    </view>
+    <!-- 区域 -->
+    <block>
+      <view
+        wx:class="districts pt15 {{district_id && district_id != '0'?'w33':'w50'}}"
+        wx:show="{{subject_selected == 'districts'}}"
+      >
+        <block wx:for="{{districts}}" wx:key="index">
+          <view
+            bindtap="handleDistricts"
+            data-value="{{item.district_id}}"
+            wx:class="tree-item {{district_id == item.district_id?'actived':''}}"
+          >{{item.district}}</view>
+        </block>
+      </view>
+      <view
+        class="bizArea pt15 w33"
+        wx:show="{{district_id && district_id != '0' && biz_area.length > 0}}"
+      >
+        <block wx:for="{{biz_area}}" wx:key="index">
+          <view
+            bindtap="handleBizArea"
+            data-value="{{item.biz_area_id}}"
+            wx:class="tree-item {{biz_area_id == item.biz_area_id?'actived':''}}"
+          >{{item.biz_area}}</view>
+        </block>
+      </view>
+    </block>
+    <!-- 地铁 -->
+    <block>
+      <view
+        wx:class="districts pt15 {{line_id && line_id != '0'?'w33':'w50'}}"
+        wx:show="{{subject_selected == 'subway'}}"
+      >
+        <block wx:for="{{subways}}" wx:key="index">
+          <view
+            bindtap="handleLine"
+            data-value="{{item.id}}"
+            wx:class="tree-item {{line_id == item.id?'actived':''}}"
+          >{{item.name}}</view>
+        </block>
+      </view>
+      <view
+        class="bizArea pt15 w33"
+        wx:show="{{line_id && line_id != '0' && station_data.length > 0}}"
+      >
+        <block wx:for="{{station_data}}" wx:key="index">
+          <view
+            bindtap="handleStation"
+            data-value="{{item.id}}"
+            wx:class="tree-item {{station_id == item.id?'actived':''}}"
+          >{{item.name}}</view>
+        </block>
+      </view>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

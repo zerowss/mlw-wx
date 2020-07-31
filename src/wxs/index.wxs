@@ -23,4 +23,8 @@ module.exports = {
     }
     return _arr;
   },
+  // 是否在数组中
+  isInArray: function (array, value) {
+    return array.indexOf(value) > -1;
+  },
 };

@@ -4,7 +4,36 @@ export const mixinBase: IMixin = {
     data: {
         cityList: [],
         searchForm: {
-            conditions: {},
+            conditions: {
+                activities:{
+                    query: '',
+                    selections: []
+                },
+                build_area:{
+                    query: '',
+                    selections: []
+                },
+                is_expect:{
+                    query: '',
+                    selections: []
+                },
+                rent_price:{
+                    query: '',
+                    selections: []
+                },
+                rent_type:{
+                    query: '',
+                    selections: []
+                },
+                room:{
+                    query: '',
+                    selections: []
+                },
+                room_features:{
+                    query: '',
+                    selections: []
+                }
+            },
             districts: [],
             sorters: [],
             subways: []

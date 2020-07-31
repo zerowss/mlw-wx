@@ -1,0 +1,37 @@
+<template>
+  <view class="rent-price">
+    <block wx:for="{{rentPrice.selections}}" wx:key="index">
+      <view
+        bindtap="handleClick"
+        data-value="{{item.value}}"
+        data-key="{{rentPrice.query}}"
+        wx:class="rent-price-item {{rent_price == item.value?'actived':''}}"
+      >{{item.title}}</view>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss" >
+@import "@/style/_base";
+.rent-price {
+  width: 100%;
+  margin-top: 60rpx;
+  .rent-price-item {
+    font-size: $f14;
+    color: #2a2a2a;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-bottom: 50rpx;
+    &.actived {
+      color: #069991;
+    }
+  }
+}
+</style>
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

@@ -1,0 +1,41 @@
+@import "@/style/_base";
+
+.tree-wrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-size: $f14;
+  color: #333333;
+  display: flex;
+  .actived{
+      color: #069991;
+  }
+  .tree-item{
+    text-align: center;
+    height: _rpx(20);
+    line-height: _rpx(20);
+    margin-bottom: _rpx(25);
+  }
+  .tree-subject {
+    width: 100%;
+    padding-top: _rpx(15);
+  }
+  .districts{
+    background: #FBFBFB;
+    overflow: auto;
+  }
+  .bizArea{
+    background: #F3F3F3;
+    overflow: auto;
+  }
+  .w50{
+      width: 50%;
+  }
+  .w33{
+      width: 33.33%;
+  }
+  .pt15{
+    padding-top: _rpx(15);
+  }
+}

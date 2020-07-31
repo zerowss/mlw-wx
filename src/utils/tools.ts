@@ -30,3 +30,33 @@ export const filterObjEmptyAttr = (obj: any) => {
   }
   return obj
 }
+/*函数节流*/
+export const throttle = (fn: any, interval: number) => {
+  let enterTime = 0
+  const gapTime = interval || 300
+  return function () {
+    // @ts-ignore
+    const context = this
+    const backTime: number = +new Date()
+    if (backTime - enterTime > gapTime) {
+      fn.call(context, arguments);
+      enterTime = backTime;
+    }
+  };
+}
+
+/*函数防抖*/
+export const debounce = (fn: any, interval?: number) => {
+  let timer: any
+  const gapTime = interval || 1000;
+
+  return function () {
+    clearTimeout(timer);
+    // @ts-ignore
+    const context = this;
+    const args = arguments
+    timer = setTimeout(function () {
+      fn.call(context, args);
+    }, gapTime);
+  };
+}

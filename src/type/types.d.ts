@@ -6,6 +6,7 @@ import { IParams } from '@/plugin/request'
 declare module '@mpxjs/core' {
     // 声明为 Mpx 补充的属性
     interface Mpx {
+        requirePlugin?: any
     }
     interface MpxComponentIns {
         $post: (p: IParams) => Promise<any>;

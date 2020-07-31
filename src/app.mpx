@@ -19,7 +19,8 @@ module.exports = {
     "./pages/aboutUs/index",
     "./pages/aboutUsSub/serviceAgreement/index",
     "./pages/aboutUsSub/privacyPolicy/index",
-    "./pages/aboutUsSub/companyProfile/index"
+    "./pages/aboutUsSub/companyProfile/index",
+    "./pages/mapView/index"
   ],
   debug: process.env.NODE_ENV !== "production",
   window: {
@@ -66,12 +67,15 @@ module.exports = {
   },
   permission: {
     "scope.userLocation": {
-      desc: "您的位置数据将用于定位城市、推荐附近房源"
+      desc: "您的位置数据将用于定位城市、推荐附近房源、路线规划"
     }
   },
-  useExtendedLib: {
-    weui: true
-  },
+  // plugins: {
+  //   routePlan: {
+  //     version: "1.0.6",
+  //     provider: "wx07c4c74de8b760c0"
+  //   }
+  // },
   usingComponents: {
     "van-image": "@vant/weapp/dist/image/index",
     "van-action-sheet": "@vant/weapp/dist/action-sheet/index"

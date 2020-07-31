@@ -1,5 +1,5 @@
 <template>
-  <view class="containt">
+  <view class="containt" wx:style="{{ {paddingBottom: navigationBarHeight+'px'} }}">
     <view
       class="navigation-container"
       wx:style="{{ {height: navigationBarAndStatusBarHeight+'px'} }}"

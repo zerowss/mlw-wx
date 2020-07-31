@@ -1,0 +1,86 @@
+<template>
+  <view class="rent-type-wrap">
+    <view class="s-tag">
+      <view class="s-tag-item">
+        <view class="tag-title">合租</view>
+        <view class="tags-wrap">
+          <van-row gutter="10">
+            <van-col span="6">
+              <view
+                data-type="rent_type"
+                data-type-value="合租"
+                data-key="{{room.query}}"
+                data-value="0"
+                wx:class="stag {{rentTypeForm.typeValue === '合租' && rentTypeForm.value == 0?'actived':''}}"
+                bindtap="handleRentType"
+              >全部</view>
+            </van-col>
+            <van-col span="6" wx:for="{{room.selections}}" wx:key="index">
+              <view
+                wx:if="{{item.value !== '1'}}"
+                data-type="rent_type"
+                data-type-value="合租"
+                data-key="{{room.query}}"
+                data-value="{{item.value}}"
+                wx:class="stag {{rentTypeForm.typeValue === '合租' && rentTypeForm.value == item.value?'actived':''}}"
+                bindtap="handleRentType"
+              >{{item.title}}</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view class="s-tag-item">
+        <view class="tag-title">整租</view>
+        <view class="tags-wrap">
+          <van-row gutter="10">
+            <van-col span="6">
+              <view
+                data-type="rent_type"
+                data-type-value="整租"
+                data-key="{{room.query}}"
+                data-value="0"
+                wx:class="stag {{rentTypeForm.typeValue === '整租' && rentTypeForm.value == 0?'actived':''}}"
+                bindtap="handleRentType"
+              >全部</view>
+            </van-col>
+            <van-col span="6" wx:for="{{room.selections}}" wx:key="index">
+              <view
+                data-type="rent_type"
+                data-type-value="整租"
+                data-key="{{room.query}}"
+                data-value="{{item.value}}"
+                wx:class="stag {{rentTypeForm.typeValue === '整租' && rentTypeForm.value == item.value?'actived':''}}"
+                bindtap="handleRentType"
+              >{{item.title}}</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view class="stag-btn-wrap">
+        <view
+          data-type="rent_type"
+          data-type-value="{{''}}"
+          data-key="{{room.query}}"
+          data-value="{{''}}"
+          class="btn btn-default w122"
+          bindtap="handlRestRentType"
+        >重置</view>
+        <view class="btn btn-primary w208" bindtap="handlRentTypeOk">确定</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "component": true,
+    "usingComponents": {
+      "van-row": "@vant/weapp/dist/row/index",
+      "van-col": "@vant/weapp/dist/col/index"
+    }
+  }
+</script>

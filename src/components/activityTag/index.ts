@@ -9,28 +9,43 @@ createComponent({
         disabled: {
             type: Boolean,
             value: false
+        },
+        activities: {
+            type: Object,
+            value: {
+                title: '',
+                value: ''
+            }
+        },
+        typeKey: {
+            type: String,
+            value: 'activities'
         }
     },
-    data: { activity_name: '', is_disabled: true },
+    data: { value: '' },
     watch: {
-        activityName: {
-            handler(val, old) {
-                this.activity_name = val;
-            },
-            immediate: true // 是否首次执行一次
-        },
+        // activityName: {
+        //     handler(val, old) {
+        //         this.activity_name = val;
+        //     },
+        //     immediate: true // 是否首次执行一次
+        // },
 
-        disabled: {
-            handler(val, old) {
-                this.is_disabled = val;
-            },
-            immediate: true // 是否首次执行一次
-        }
+        // disabled: {
+        //     handler(val, old) {
+        //         this.is_disabled = val;
+        //     },
+        //     immediate: true // 是否首次执行一次
+        // }
     },
     methods: {
-        changeTag() {
+        changeTag(e: any) {
             if (this.disabled) return;
-            this.triggerEvent('selectTags', { activityName: this.activity_name });
+            const { value } = e.target.dataset
+            this.value = this.value == value ? '' : value
+            const form = {} as any
+            form[this.typeKey] = value
+            this.triggerEvent('selectTags', form);
         }
     }
 })

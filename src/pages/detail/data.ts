@@ -1,20 +1,5 @@
 
-function getUrl(name: string) {
-    return 'http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/' + name + '.png'
-}
-
-// const _deploy = [
-//     'bed',
-//     'closet',
-//     'tv',
-//     'table',
-//     'sofa',
-//     'fridge',
-//     'wash',
-//     'aircondition',
-//     'fire',
-//     'calorifier'
-// ]
+import {getCdnUrl} from '@/utils/tools'
 
 interface IDeploy {
     [key: string]: string
@@ -33,20 +18,13 @@ const _deploy: IDeploy = {
     'calorifier': '热水器'
 }
 
-// export const deployList = _deploy.map(v => {
-//     return {
-//         key: v,
-//         url: getUrl(v),
-//         no_url: getUrl('no_' + v)
-//     }
-// })
 
 export const deployList = Object.keys(_deploy).map((v: string) => {
     return {
         name: _deploy[v],
         key: v,
-        url: getUrl(v),
-        no_url: getUrl('no_' + v)
+        url: getCdnUrl(v),
+        no_url: getCdnUrl('no_' + v)
     }
 })
 

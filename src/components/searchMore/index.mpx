@@ -1,0 +1,70 @@
+<template>
+  <wxs src="../../wxs/index.wxs" module="WXS"></wxs>
+  <view class="search-more">
+    <view class="s-tag">
+      <view class="s-tag-item">
+        <view class="tag-title">房间特色(多选)</view>
+        <view class="tags-wrap">
+          <van-row gutter="10">
+            <van-col span="6" wx:for="{{roomFeatures.selections}}" wx:key="index">
+              <view
+                data-key="{{roomFeatures.query}}"
+                data-value="{{item.value}}"
+                wx:class="stag {{ WXS.isInArray(room_features,item.value) ?'actived':''}}"
+                bindtap="handleRoomFeatures"
+              >{{item.title}}</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view class="s-tag-item">
+        <view class="tag-title">面积(㎡)</view>
+        <view class="tags-wrap">
+          <van-row gutter="10">
+            <van-col span="6" wx:for="{{buildArea.selections}}" wx:key="index">
+              <view
+                data-key="{{buildArea.query}}"
+                data-value="{{item.value}}"
+                wx:class="stag {{build_area == item.value?'actived':''}}"
+                bindtap="handleBuildArea"
+              >{{item.title}}</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view class="s-tag-item">
+        <view class="tag-title">房源状态</view>
+        <view class="tags-wrap">
+          <van-row gutter="10">
+            <van-col span="6" wx:for="{{isExpect.selections}}" wx:key="index">
+              <view
+                data-key="{{isExpect.query}}"
+                data-value="{{item.value}}"
+                wx:class="stag {{is_expect == item.value?'actived':''}}"
+                bindtap="handleIsExpect"
+              >{{item.title}}</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view class="stag-btn-wrap">
+        <view class="btn btn-default w122" bindtap="handlRestRentType">重置</view>
+        <view class="btn btn-primary w208" bindtap="handlRentTypeOk">确定</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "component": true,
+    "usingComponents":{
+      "van-row": "@vant/weapp/dist/row/index",
+      "van-col": "@vant/weapp/dist/col/index"
+    }
+  }
+</script>

@@ -1,0 +1,37 @@
+<template>
+  <view class="search-order">
+    <block wx:for="{{sorters}}" wx:key="index">
+      <view
+        bindtap="handleClick"
+        data-sort="{{item.sort}}"
+        data-order="{{item.order}}"
+        wx:class="search-order-item {{sort == item.sort && order == item.order ?'actived':''}}"
+      >{{item.title}}</view>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss" >
+@import "@/style/_base";
+.search-order {
+  width: 100%;
+  margin-top: 60rpx;
+  .search-order-item {
+    font-size: $f14;
+    color: #2a2a2a;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-bottom: 50rpx;
+    &.actived {
+      color: #069991;
+    }
+  }
+}
+</style>
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

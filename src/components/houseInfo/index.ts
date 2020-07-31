@@ -5,8 +5,12 @@ createComponent({
         houseInfo: {
             type: Object,
             value: {
-                tags: []
+                activities: []
             }
+        },
+        showStatus:{
+            type: Boolean,
+            value: false
         }
     },
     data: {
@@ -14,7 +18,7 @@ createComponent({
     },
     computed: {
         isShowTags() {
-            return this.houseInfo.tags && this.houseInfo.tags.length > 0;
+            return this.houseInfo.activities && this.houseInfo.activities.length > 0;
         }
     },
     watch: {

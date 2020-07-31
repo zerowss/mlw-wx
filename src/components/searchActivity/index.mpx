@@ -1,0 +1,22 @@
+<template>
+  <view class="search-activity">
+    <block wx:for="{{activities.selections}}" wx:key="index">
+      <view
+        data-key="{{activities.query}}"
+        data-value="{{item.value}}"
+        wx:class="activity-tag {{value == item.value?'activited-tag':''}}"
+        bindtap="handleTags"
+      >{{item.title}}</view>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>

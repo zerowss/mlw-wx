@@ -1,0 +1,62 @@
+@import "@/style/_base";
+// 搜索样式
+.s-tag {
+  padding: 0 _rpx(20) _rpx(15) _rpx(20);
+  .s-tag-item {
+    margin-bottom: _rpx(16);
+  }
+  .tag-title {
+    font-size: $f14;
+    color: #333333;
+    width: 100%;
+    height: _rpx(20);
+    text-align: left;
+  }
+  .tags-wrap {
+    margin-top: _rpx(15);
+    .stag {
+      width: 100%;
+      height: _rpx(28);
+      line-height: _rpx(28);
+      border: 1rpx solid #d8d8d8;
+      box-sizing: border-box;
+      font-size: $f14;
+      color: #2a2a2a;
+      text-align: center;
+      margin-bottom: _rpx(10);
+      &.actived {
+        background-color: rgba(6, 153, 145, 0.1);
+        color: #069991;
+        border: 1rpx solid #069991;
+      }
+    }
+  }
+  .stag-btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      display: inline-block;
+      height: _rpx(42);
+      line-height: _rpx(42);
+      text-align: center;
+      border-radius: 4rpx;
+      box-sizing: border-box;
+      &-primary {
+        color: #ffffff;
+        background-color: #069991;
+      }
+      &-default {
+        border: 1px solid #dcdcdc;
+        font-size: $f14;
+        color: #333333;
+      }
+    }
+  }
+}
+.w122 {
+  width: _rpx(122);
+}
+.w208 {
+  width: _rpx(208);
+}

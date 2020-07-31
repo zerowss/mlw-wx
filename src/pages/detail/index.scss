@@ -54,7 +54,7 @@
   .activities-wrap {
     width: 100%;
     height: auto;
-    padding: _rpx(12) _rpx(10) 0 _rpx(10);
+    padding: _rpx(12) _rpx(10);
     box-shadow: 0 0 6px 0 #e2e2e2;
     border-radius: _rpx(2);
     overflow: hidden;
@@ -70,8 +70,12 @@
         line-height: _rpx(20);
       }
       .act-r {
+        .mt13{
+          margin-top: _rpx(13);
+        }
         .act-memo {
-          margin-bottom: _rpx(13);
+          display: flex;
+          align-items: center;
           .activity-tag {
             display: inline-block;
             background-color: #fde7e5;
@@ -151,6 +155,11 @@
       align-items: center;
       justify-content: flex-start;
       margin-bottom: _rpx(19);
+      &.deploy-disabled{
+        .deploy-word{
+          color: #999999;
+        }
+      }
       .deploy-gutter {
         width: _rpx(52);
         display: flex;

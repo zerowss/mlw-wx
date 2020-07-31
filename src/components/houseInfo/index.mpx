@@ -2,22 +2,36 @@
   <wxs src="../../wxs/index.wxs" module="tools" />
   <view class="house-info-wrap">
     <view class="house-info-l">
-      <van-image width="100%" height="100%" lazy-load src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      <van-image
+        width="100%"
+        height="100%"
+        lazy-load
+        src="{{houseInfo.cover_photo}}"
+        use-loading-slot
+        use-error-slot
+      >
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+        <text slot="error">加载失败</text>
+      </van-image>
     </view>
     <view class="house-info-r">
-      <view class="base-info">私摩空间3居室-A卧</view>
-      <view class="info-detail">海淀·魏公村|合租|45m²|朝南</view>
+      <view class="base-info">{{houseInfo.c_title}}</view>
+      <view class="info-detail">{{houseInfo.sub_title}}</view>
       <view class="info-tags">
         <view wx:if="isShowTags">
-          <block wx:for="{{houseInfo.tags}}" wx:key="index">
+          <block wx:for="{{houseInfo.activities}}" wx:key="index">
             <activity-tag activity-name="年付免1月"></activity-tag>
           </block>
         </view>
       </view>
       <view class="info-price">
-        <text class="p">￥2300</text>
+        <text class="p">￥{{houseInfo.rent_price}}</text>
         <text class="u">/月</text>
-        <view class="house-status" style="color: {{tools.getStatusColor('已出租',_statusColors)}}">已出租</view>
+        <view
+          wx:if="{{showStatus}}"
+          class="house-status"
+          style="color: {{tools.getStatusColor(houseInfo.status,_statusColors)}}"
+        >{{houseInfo.status}}</view>
       </view>
     </view>
   </view>
@@ -100,7 +114,8 @@
   {
     "component": true,
     "usingComponents": {
-      "activity-tag": "@/components/activityTag"
+      "activity-tag": "@/components/activityTag",
+      "van-loading": "@vant/weapp/dist/loading/index"
     }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <view wx:class="{{currentClass}}" bindtap="changeTag" >{{activity_name}}</view>
+  <view data-value="{{activities.value}}" bindtap="changeTag" >{{activities.title}}</view>
 </template>
 
 <script lang="ts" src="./index.ts"></script>

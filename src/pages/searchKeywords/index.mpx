@@ -11,6 +11,8 @@
             auto-focus
             placeholder="你想住在哪?"
             bindconfirm="handleSearch"
+            bindinput="handleInput"
+            wx:model="{{keywords}}"
           />
         </view>
         <view class="search-cancel" bindtap="handleCancel">
@@ -18,7 +20,14 @@
         </view>
       </view>
     </block>
-    <block>
+    <view class="show-search-list" wx:show="{{searchList.length > 0}}">
+      <block wx:for="{{searchList}}" wx:key="index">
+        <navigator open-type="navigateBack" hover-class="none">
+          <view data-value="{{item.community_id}}" class="show-item">{{item.name}}</view>
+        </navigator>
+      </block>
+    </view>
+    <view wx:show="{{!keywords}}">
       <view class="hot">热门搜索</view>
       <view class="hot-tags">
         <activity-tag
@@ -28,7 +37,7 @@
           class="activity-tag"
         ></activity-tag>
       </view>
-    </block>
+    </view>
   </view>
 </template>
 

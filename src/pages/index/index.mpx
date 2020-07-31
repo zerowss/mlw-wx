@@ -16,7 +16,7 @@
       </view>
     </view>
   </view>
-  <view class="header">
+  <view wx:class="header {{headerShow?'':'header-hidden'}}" >
     <!-- banner -->
     <view class="banner">
       <swiper circular="true" autoplay="true" style="height: 286rpx">
@@ -51,98 +51,84 @@
   </view>
   <view class="hairline"></view>
   <!-- 搜索、房源 -->
-  <van-sticky offset-top="{{ 56 }}">
-    <view class="containt">
+  <van-sticky id="comment" offset-top="{{ 56 }}" bind:scroll="scrollSticky">
+    <view class="containt" bindtap="handleSticky">
       <!-- 搜索条件 -->
       <view class="search-tabs">
         <!-- 合/整租 -->
         <view class="search-item">
           <view class="search-dropdown">
-            <van-dropdown-menu active-color="#069991">
-              <van-dropdown-item id="rentType" title="合/整租">
-                <view class="s-tag">
-                  <view class="s-tag-item">
-                    <view class="tag-title">合租</view>
-                    <view class="tags-wrap">
-                      <van-row gutter="10">
-                        <van-col span="6">
-                          <view
-                            data-type="rent_type"
-                            data-type-value="合租"
-                            data-key="{{room.query}}"
-                            data-value="0"
-                            wx:class="stag {{rentTypeForm.typeValue === '合租' && rentTypeForm.value == 0?'actived':''}}"
-                            bindtap="handleRentType"
-                          >全部</view>
-                        </van-col>
-                        <van-col span="6" wx:for="{{room.selections}}" wx:key="index">
-                          <view
-                            wx:if="{{item.value !== '1'}}"
-                            data-type="rent_type"
-                            data-type-value="合租"
-                            data-key="{{room.query}}"
-                            data-value="{{item.value}}"
-                            wx:class="stag {{rentTypeForm.typeValue === '合租' && rentTypeForm.value == item.value?'actived':''}}"
-                            bindtap="handleRentType"
-                          >{{item.title}}</view>
-                        </van-col>
-                      </van-row>
-                    </view>
-                  </view>
-                  <view class="s-tag-item">
-                    <view class="tag-title">整租</view>
-                    <view class="tags-wrap">
-                      <van-row gutter="10">
-                        <van-col span="6">
-                          <view
-                            data-type="rent_type"
-                            data-type-value="整租"
-                            data-key="{{room.query}}"
-                            data-value="0"
-                            wx:class="stag {{rentTypeForm.typeValue === '整租' && rentTypeForm.value == 0?'actived':''}}"
-                            bindtap="handleRentType"
-                          >全部</view>
-                        </van-col>
-                        <van-col span="6" wx:for="{{room.selections}}" wx:key="index">
-                          <view
-                            data-type="rent_type"
-                            data-type-value="整租"
-                            data-key="{{room.query}}"
-                            data-value="{{item.value}}"
-                            wx:class="stag {{rentTypeForm.typeValue === '整租' && rentTypeForm.value == item.value?'actived':''}}"
-                            bindtap="handleRentType"
-                          >{{item.title}}</view>
-                        </van-col>
-                      </van-row>
-                    </view>
-                  </view>
-                  <view class="stag-btn-wrap">
-                    <view
-                      data-type="rent_type"
-                      data-type-value="整租"
-                      data-key=""
-                      data-value=""
-                      class="btn btn-default w122"
-                      bindtap="handlRestRentType"
-                    >重置</view>
-                    <view class="btn btn-primary w208" bindtap="handlRentTypeOk">确定</view>
-                  </view>
-                </view>
-              </van-dropdown-item>
-            </van-dropdown-menu>
+            <van-row>
+              <van-col span="5">
+                <van-dropdown-menu active-color="#069991">
+                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="rentType" title="合/整租">
+                    <search-rent-type bind:selectRentType="selectRentType" room="{{room}}" />
+                  </van-dropdown-item>
+                </van-dropdown-menu>
+              </van-col>
+
+              <van-col span="6">
+                <van-dropdown-menu active-color="#069991">
+                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="position" title="位置">
+                    <tree-select
+                      bind:selectPosition="selectPosition"
+                      subways="{{searchForm.subways}}"
+                      districts="{{searchForm.districts}}"
+                    />
+                  </van-dropdown-item>
+                </van-dropdown-menu>
+              </van-col>
+
+              <van-col span="5">
+                <van-dropdown-menu active-color="#069991">
+                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="rentPrice" title="租金">
+                    <rent-price
+                      bind:selectRentPrice="selectRentPrice"
+                      rentPrice="{{searchForm.conditions.rent_price}}"
+                    />
+                  </van-dropdown-item>
+                </van-dropdown-menu>
+              </van-col>
+
+              <van-col span="6">
+                <van-dropdown-menu active-color="#069991">
+                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="selectMore" title="更多">
+                    <search-more
+                      buildArea="{{searchForm.conditions.build_area}}"
+                      isExpect="{{searchForm.conditions.is_expect}}"
+                      roomFeatures="{{searchForm.conditions.room_features}}"
+                      bind:selectMore="selectMore"
+                    />
+                  </van-dropdown-item>
+                </van-dropdown-menu>
+              </van-col>
+
+              <van-col span="2">
+                <van-dropdown-menu active-color="#069991" class="sorters-wrap">
+                  <van-dropdown-item
+                    disabled="{{is_dropdownDisabled}}"
+                    title-class="sorters-icon"
+                    id="selectOrder"
+                    title=" "
+                  >
+                    <search-order
+                      bind:selectSorters="selectSorters"
+                      sorters="{{searchForm.sorters}}"
+                    />
+                  </van-dropdown-item>
+                </van-dropdown-menu>
+              </van-col>
+            </van-row>
           </view>
         </view>
       </view>
       <!-- 活动标签 -->
-      <view class="activte-tags" wx:if="{{activityTagsList.length > 0}}">
+      <view class="activte-tags" wx:if="{{activityTagsList['selections'].length > 0}}">
         <scroll-view scroll-x="true">
-          <block wx:for="{{activityTagsList}}" wx:key="index">
-            <activity-tag
-              bind:selectTags="selectTags"
-              activity-name="{{item}}"
-              class="activity-tag activited-tag"
-            ></activity-tag>
-          </block>
+          <search-activity
+            bind:selectTags="selectTags"
+            activities="{{searchForm.conditions.activities}}"
+          />
         </scroll-view>
       </view>
     </view>
@@ -150,13 +136,17 @@
   <!-- 房源展示 -->
   <view class="containt">
     <view class="house-info-wrap">
-      <block wx:for="{{houseInfoList}}" wx:key="index">
-        <view class="house-info-item {{index == 0?'.no-bo':''}}">
-          <navigator url="/pages/detail/index?title=navigate">
-            <house-info></house-info>
-          </navigator>
-        </view>
-      </block>
+      <view wx:show="{{houseInfoList.length > 0}}">
+        <block wx:for="{{houseInfoList}}" wx:key="index">
+          <view class="house-info-item {{index == 0?'.no-bo':''}}">
+            <navigator url="/pages/detail/index?document_id={{item.document_id}}" hover-class="none">
+              <house-info houseInfo="{{item}}"></house-info>
+            </navigator>
+          </view>
+        </block>
+      </view>
+
+      <view wx:show="{{houseInfoList.length == 0}}" class="no-data">未找到符合条件的房源，减少筛选条件试试</view>
     </view>
   </view>
   <!-- 城市选项 -->
@@ -184,7 +174,13 @@
       "house-info": "@/components/houseInfo",
       "van-sticky": "@vant/weapp/dist/sticky/index",
       "van-row": "@vant/weapp/dist/row/index",
-      "van-col": "@vant/weapp/dist/col/index"
+      "van-col": "@vant/weapp/dist/col/index",
+      "tree-select": "@/components/treeSelect",
+      "rent-price": "@/components/rentPrice",
+      "search-more": "@/components/searchMore",
+      "search-order": "@/components/searchOrder",
+      "search-rent-type": "@/components/searchRentType",
+      "search-activity": "@/components/searchActivity"
     }
   }
 </script>

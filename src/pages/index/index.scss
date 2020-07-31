@@ -79,6 +79,11 @@
   box-sizing: border-box;
   padding: _rpx(76) _rpx(20) 0 _rpx(20);
   background-color: $bg;
+  &.header-hidden{
+    height: 56px;
+    overflow: hidden;
+    padding: 0;
+  }
   .banner {
     width: 100%;
     // height: _rpx(158);
@@ -162,6 +167,8 @@
     align-items: center;
     .search-item {
       flex: 1;
+      --dropdown-menu-title-disabled-text-color: #383838;
+      --dropdown-menu-title-font-size: 28rpx;
     }
   }
   .activte-tags {
@@ -172,12 +179,6 @@
     padding-bottom: _rpx(10);
     .scroll-view {
       height: _rpx(28);
-    }
-    .activity-tag {
-      @include activitytag;
-      &.activited-tag {
-        color: $cblue;
-      }
     }
   }
   .house-info-wrap {
@@ -190,6 +191,14 @@
     .no-bo {
       border-top: none;
       padding: _rpx(10) 0 _rpx(16) 0;
+    }
+    .no-data {
+      margin-top: 80rpx;
+      font-size: $f14;
+      color: $cblack-light-less;
+      height: _rpx(20);
+      line-height: _rpx(20);
+      text-align: center;
     }
   }
 }
@@ -249,9 +258,20 @@
     }
   }
 }
-.w122{
+.w122 {
   width: _rpx(122);
 }
-.w208{
+.w208 {
   width: _rpx(208);
+}
+
+.sorters-wrap {
+  .sorters-icon {
+    width: 20rpx;
+    height: 24rpx;
+    @include bgUrl("../../static/images/icon/icon_paixu@3x.png");
+  }
+  .van-dropdown-menu__title::after {
+    border-width: 0;
+  }
 }

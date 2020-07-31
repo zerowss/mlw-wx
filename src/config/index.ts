@@ -43,6 +43,11 @@ export const _BAIDU = {
     // ak: 'L72bAq4FTA4LMak2AVPg2bTtS22S3w1K'
 }
 
+// 腾讯地图api
+export const _TX = {
+    key: 'GFTBZ-A3XHF-6OQJI-NY3RS-7BDLV-RPFTF'
+}
+
 // 房屋状态
 export const _statusColors = [
     {

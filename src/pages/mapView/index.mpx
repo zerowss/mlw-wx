@@ -1,0 +1,42 @@
+<template>
+  <navigation-bar title="房屋详情"></navigation-bar>
+  <view class="map-view">
+    <view class="tabs">
+      <block wx:for="{{tabsList}}" wx:key="index">
+        <view
+          class="tabs-item {{currentTabIndex == index ? 'actived' : '' }}"
+          bindtap="onTabsItemTap"
+          data-index="{{index}}"
+          data-value="{{item}}"
+        >{{item}}</view>
+      </block>
+    </view>
+    <view class="map-wrap">
+      <map
+        id="map"
+        longitude="{{longitude}}"
+        latitude="{{latitude}}"
+        style="width: 100%; height: {{map_h}}"
+        bindpoitap="handlePoi"
+        markers="{{markers}}"
+        show-location
+      ></map>
+    </view>
+  </view>
+</template>
+
+<script lang="ts" src="./index.ts"></script>
+<style lang="scss">
+@import "index";
+</style>
+
+<script type="application/json">
+  {
+    "navigationBarTitleText": "房屋详情",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+      "navigation-bar": "@/components/navigationBar/index"
+    }
+  }
+</script>

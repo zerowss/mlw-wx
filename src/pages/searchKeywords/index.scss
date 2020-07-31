@@ -52,3 +52,17 @@
     margin-bottom: _rpx(15);
   }
 }
+
+.show-search-list {
+  height: 400px;
+  overflow: auto;
+  .show-item {
+    width: 100%;
+    padding: _rpx(10) 0;
+    text-align: left;
+    color: #666666;
+    font-size: $f14;
+    margin-bottom: _rpx(10);
+    border-bottom: 1rpx solid #EFF3F6;
+  }
+}

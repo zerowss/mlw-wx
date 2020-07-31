@@ -1,16 +1,16 @@
 <template>
   <view class="room-tag-wrap">
     <view class="room-tag-content">
-      <view class="title">A卧</view>
+      <view class="title">{{roomInfo.room_number}}</view>
       <view class="title">
-        <text>52m²</text>
-        <text>南</text>
-        <text>3300元/月</text>
+        <text>{{roomInfo.build_area}}m²</text>
+        <text>{{roomInfo.direction}}</text>
+        <text>{{roomInfo.rent_price}}元/月</text>
       </view>
       <!-- <view class="m">当前房间</view> -->
-      <navigator class="m" url="/pages/detail/index" hover-class="navigator-hover">查看详情</navigator>
+      <navigator class="m" url="/pages/detail/index?document_id={{roomInfo.document_id}}" hover-class="navigator-hover">查看详情</navigator>
     </view>
-    <view class="room-status">出租中</view>
+    <view class="room-status">{{roomInfo.status}}</view>
   </view>
 </template>
 
@@ -18,7 +18,7 @@
 <style lang="scss">
 @import "@/style/_base";
 .room-tag-wrap {
-  width: _rpx(141);
+  // width: _rpx(141);
   height: _rpx(78);
   background: #ffffff;
   box-shadow: 0 0 _rpx(6) 0 #e2e2e2;
