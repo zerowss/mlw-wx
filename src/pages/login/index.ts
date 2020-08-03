@@ -21,7 +21,26 @@ createPage({
       const _this = this
       if (e.detail.errMsg === "getPhoneNumber:ok") {
         const { encryptedData, iv, phone } = e.detail
-        _this.login(encryptedData, iv, phone);
+        const _this = this
+        wx.login({
+          success(res: WechatMiniprogram.LoginSuccessCallbackResult) {
+            console.log(res);
+            if (res.errMsg === "login:ok") {
+              _this.$get({
+                url: '/customer/getWechatCode',
+                data: {
+                  encryptedData,
+                  iv,
+                  code: res.code
+                }
+              }).then(result => {
+                console.log(result, 'resiu')
+
+                
+              })
+            }
+          }
+        })
       }
     },
     // 是否首次登录

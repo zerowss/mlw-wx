@@ -2,51 +2,53 @@
   <!-- 头部 -->
   <view class="top">
     <!-- 位置搜索 / 吸顶-->
-    <view class="header-search">
-      <view class="search-city" bindtap="handleCity">
-        <view class="city-name">{{city_name}}</view>
-        <view class="city-icon-wrap">
-          <view class="city-icon"></view>
+    <van-skeleton row="1" class="header-search-skeleton" loading="{{ skeleton_loading }}">
+      <view class="header-search">
+        <view class="search-city" bindtap="handleCity">
+          <view class="city-name">{{city_name}}</view>
+          <view class="city-icon-wrap">
+            <view class="city-icon"></view>
+          </view>
+        </view>
+        <view class="search-key">
+          <view class="search-icon"></view>
+          <view class="search-keywords" bindtap="handleKeyWord">{{keywords.name}}</view>
+          <view class="search-clear" wx:show="{{keywords.value}}" bindtap="handleDelKeywords"></view>
         </view>
       </view>
-      <view class="search-key" bindtap="handleKeyWord">
-        <view class="search-icon"></view>
-        <view class="search-keywords">{{keywords}}</view>
-        <view class="search-clear"></view>
-      </view>
-    </view>
+    </van-skeleton>
   </view>
-  <view wx:class="header {{headerShow?'':'header-hidden'}}" >
+  <view wx:class="header {{headerShow?'':'header-hidden'}}">
     <!-- banner -->
-    <view class="banner">
-      <swiper circular="true" autoplay="true" style="height: 286rpx">
-        <block wx:for="{{bannerList}}" wx:key="*this">
-          <swiper-item>
-            <view class="swiper-item">
-              <image mode="aspectFill" src="{{item.banner_pic_url}}" />
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
+    <van-skeleton row="1" class="banner-skeleton" loading="{{ skeleton_loading }}">
+      <view class="banner">
+        <swiper circular="true" autoplay="true" style="height: 286rpx">
+          <block wx:for="{{bannerList}}" wx:key="*this">
+            <swiper-item>
+              <view class="swiper-item">
+                <image mode="aspectFill" src="{{item.banner_pic_url}}" />
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </van-skeleton>
+
     <!-- 模块 -->
     <view class="menu-tabs">
-      <view class="menu-item">
-        <view class="meun-icon hz"></view>
-        <view class="menu-tit">合租</view>
-      </view>
-      <view class="menu-item">
-        <view class="meun-icon zz"></view>
-        <view class="menu-tit">整租</view>
-      </view>
-      <view class="menu-item">
-        <view class="meun-icon jm"></view>
-        <view class="menu-tit">房东加盟</view>
-      </view>
-      <view class="menu-item">
-        <view class="meun-icon dz"></view>
-        <view class="menu-tit">定制房源</view>
-      </view>
+      <van-skeleton
+        row="2"
+        row-width="72rpx"
+        class="menu-skeleton"
+        loading="{{ skeleton_loading }}"
+        wx:for="{{menuList}}"
+        wx:key="index"
+      >
+        <view class="menu-item" bindtap="handleMenu(item,$event)">
+          <view wx:class="meun-icon {{item.class}}"></view>
+          <view class="menu-tit">{{item.name}}</view>
+        </view>
+      </van-skeleton>
     </view>
   </view>
   <view class="hairline"></view>
@@ -60,70 +62,91 @@
           <view class="search-dropdown">
             <van-row>
               <van-col span="5">
-                <van-dropdown-menu active-color="#069991">
-                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="rentType" title="合/整租">
-                    <search-rent-type bind:selectRentType="selectRentType" room="{{room}}" />
-                  </van-dropdown-item>
-                </van-dropdown-menu>
+                <van-skeleton row="1" class="search-skeleton" loading="{{ skeleton_loading }}">
+                  <van-dropdown-menu active-color="#069991">
+                    <van-dropdown-item
+                      disabled="{{is_dropdownDisabled}}"
+                      id="rentType"
+                      title="合/整租"
+                    >
+                      <search-rent-type bind:selectRentType="selectRentType" room="{{room}}" />
+                    </van-dropdown-item>
+                  </van-dropdown-menu>
+                </van-skeleton>
               </van-col>
 
               <van-col span="6">
-                <van-dropdown-menu active-color="#069991">
-                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="position" title="位置">
-                    <tree-select
-                      bind:selectPosition="selectPosition"
-                      subways="{{searchForm.subways}}"
-                      districts="{{searchForm.districts}}"
-                    />
-                  </van-dropdown-item>
-                </van-dropdown-menu>
+                <van-skeleton row="1" class="search-skeleton" loading="{{ skeleton_loading }}">
+                  <van-dropdown-menu active-color="#069991">
+                    <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="position" title="位置">
+                      <tree-select
+                        bind:selectPosition="selectPosition"
+                        subways="{{searchForm.subways}}"
+                        districts="{{searchForm.districts}}"
+                      />
+                    </van-dropdown-item>
+                  </van-dropdown-menu>
+                </van-skeleton>
               </van-col>
 
               <van-col span="5">
-                <van-dropdown-menu active-color="#069991">
-                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="rentPrice" title="租金">
-                    <rent-price
-                      bind:selectRentPrice="selectRentPrice"
-                      rentPrice="{{searchForm.conditions.rent_price}}"
-                    />
-                  </van-dropdown-item>
-                </van-dropdown-menu>
+                <van-skeleton row="1" class="search-skeleton" loading="{{ skeleton_loading }}">
+                  <van-dropdown-menu active-color="#069991">
+                    <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="rentPrice" title="租金">
+                      <rent-price
+                        bind:selectRentPrice="selectRentPrice"
+                        rentPrice="{{searchForm.conditions.rent_price}}"
+                      />
+                    </van-dropdown-item>
+                  </van-dropdown-menu>
+                </van-skeleton>
               </van-col>
 
               <van-col span="6">
-                <van-dropdown-menu active-color="#069991">
-                  <van-dropdown-item disabled="{{is_dropdownDisabled}}" id="selectMore" title="更多">
-                    <search-more
-                      buildArea="{{searchForm.conditions.build_area}}"
-                      isExpect="{{searchForm.conditions.is_expect}}"
-                      roomFeatures="{{searchForm.conditions.room_features}}"
-                      bind:selectMore="selectMore"
-                    />
-                  </van-dropdown-item>
-                </van-dropdown-menu>
+                <van-skeleton row="1" class="search-skeleton" loading="{{ skeleton_loading }}">
+                  <van-dropdown-menu active-color="#069991">
+                    <van-dropdown-item
+                      disabled="{{is_dropdownDisabled}}"
+                      id="selectMore"
+                      title="更多"
+                    >
+                      <search-more
+                        buildArea="{{searchForm.conditions.build_area}}"
+                        isExpect="{{searchForm.conditions.is_expect}}"
+                        roomFeatures="{{searchForm.conditions.room_features}}"
+                        bind:selectMore="selectMore"
+                      />
+                    </van-dropdown-item>
+                  </van-dropdown-menu>
+                </van-skeleton>
               </van-col>
 
               <van-col span="2">
-                <van-dropdown-menu active-color="#069991" class="sorters-wrap">
-                  <van-dropdown-item
-                    disabled="{{is_dropdownDisabled}}"
-                    title-class="sorters-icon"
-                    id="selectOrder"
-                    title=" "
-                  >
-                    <search-order
-                      bind:selectSorters="selectSorters"
-                      sorters="{{searchForm.sorters}}"
-                    />
-                  </van-dropdown-item>
-                </van-dropdown-menu>
+                <van-skeleton row="1" class="search-skeleton" loading="{{ skeleton_loading }}">
+                  <van-dropdown-menu active-color="#069991" class="sorters-wrap">
+                    <van-dropdown-item
+                      disabled="{{is_dropdownDisabled}}"
+                      title-class="sorters-icon"
+                      id="selectOrder"
+                      title=" "
+                    >
+                      <search-order
+                        bind:selectSorters="selectSorters"
+                        sorters="{{searchForm.sorters}}"
+                      />
+                    </van-dropdown-item>
+                  </van-dropdown-menu>
+                </van-skeleton>
               </van-col>
             </van-row>
           </view>
         </view>
       </view>
       <!-- 活动标签 -->
-      <view class="activte-tags" wx:if="{{activityTagsList['selections'].length > 0}}">
+      <view
+        class="activte-tags"
+        wx:if="{{!skeleton_loading && activityTagsList['selections'].length > 0}}"
+      >
         <scroll-view scroll-x="true">
           <search-activity
             bind:selectTags="selectTags"
@@ -136,10 +159,22 @@
   <!-- 房源展示 -->
   <view class="containt">
     <view class="house-info-wrap">
-      <view wx:show="{{houseInfoList.length > 0}}">
+      <view
+        class="house-info-skeleton"
+        wx:show="{{skeleton_loading}}"
+        wx:for="{{[1,2]}}"
+        wx:key="index"
+      >
+        <van-skeleton row="1" row-width="264rpx" class="house-info-skeleton-l"></van-skeleton>
+        <van-skeleton row="3" row-width="{{['60%','70%', '20%']}}" class="house-info-skeleton-r"></van-skeleton>
+      </view>
+      <view wx:show="{{!skeleton_loading && houseInfoList.length > 0}}">
         <block wx:for="{{houseInfoList}}" wx:key="index">
           <view class="house-info-item {{index == 0?'.no-bo':''}}">
-            <navigator url="/pages/detail/index?document_id={{item.document_id}}" hover-class="none">
+            <navigator
+              url="/pages/detail/index?document_id={{item.document_id}}"
+              hover-class="none"
+            >
               <house-info houseInfo="{{item}}"></house-info>
             </navigator>
           </view>
@@ -180,7 +215,8 @@
       "search-more": "@/components/searchMore",
       "search-order": "@/components/searchOrder",
       "search-rent-type": "@/components/searchRentType",
-      "search-activity": "@/components/searchActivity"
+      "search-activity": "@/components/searchActivity",
+      "van-skeleton": "@vant/weapp/dist/skeleton/index"
     }
   }
 </script>

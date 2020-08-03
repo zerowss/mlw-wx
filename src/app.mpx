@@ -70,12 +70,12 @@ module.exports = {
       desc: "您的位置数据将用于定位城市、推荐附近房源、路线规划"
     }
   },
-  // plugins: {
-  //   routePlan: {
-  //     version: "1.0.6",
-  //     provider: "wx07c4c74de8b760c0"
-  //   }
-  // },
+  plugins: {
+    routePlan: {
+      version: "1.0.6",
+      provider: "wx50b5593e81dd937a"
+    }
+  },
   usingComponents: {
     "van-image": "@vant/weapp/dist/image/index",
     "van-action-sheet": "@vant/weapp/dist/action-sheet/index"

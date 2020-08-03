@@ -17,11 +17,14 @@
         longitude="{{longitude}}"
         latitude="{{latitude}}"
         style="width: 100%; height: {{map_h}}"
-        bindpoitap="handlePoi"
+        bindcallouttap="handleCallout"
         markers="{{markers}}"
-        show-location
+        show-location="{{true}}"
+        include-points="{{markers}}"
+        show-compass="{{true}}"
       ></map>
     </view>
+    <cover-view class="cover-view" bindtap="pathPlanning"></cover-view>
   </view>
 </template>
 

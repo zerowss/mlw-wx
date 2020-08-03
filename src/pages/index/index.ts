@@ -1,20 +1,46 @@
 import { createPage } from '@mpxjs/core'
-import store from '@/store/keywords'
 import Homepage from '@/service/home'
 import { mixinBase } from '@/mixin'
 import { isEmptyObject, filterObjEmptyAttr } from '@/utils/tools'
 createPage({
   mixins: [mixinBase],
   data: {
+    skeleton_loading: true,
     bannerList: [],
     houseInfoList: [],
+    menuList: [
+      {
+        name: '合租',
+        class: 'hz',
+        type: 'search',
+        value: 'rent_type'
+      },
+      {
+        name: '整租',
+        class: 'zz',
+        type: 'search',
+        value: 'rent_type'
+      },
+      {
+        name: '房东加盟',
+        class: 'jm',
+        type: 'route',
+        value: 'landlordJoining'
+      },
+      {
+        name: '定制房源',
+        class: 'dz',
+        type: 'route',
+        value: 'customizedHousing'
+      }
+    ],
     isShowCityList: false,
     city_name: '',
-    option1: [
-      { text: '北京', value: 0 },
-      { text: '天津', value: 1 }
-    ],
-    value1: 1,
+    keywords: {
+      value: '',
+      key: '',
+      name: ''
+    },
     // 搜索条件
     searchParams: {
       rent_type: '',
@@ -37,11 +63,27 @@ createPage({
     this.city_name = wx.getStorageSync('cityName')
     this.getHouseList()
     this.getHomeContent()
+    console.log('ssssssss');
+
   },
   onShow() {
-    // if (typeof this.getTabBar === 'function') {
-    //   this.getTabBar().init(0)
-    // }
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1]; //当前页面
+    console.log(currPage.data.keywords, '======')
+    let keywords = currPage.data.keywords;
+    if (keywords) {
+      this.keywords = keywords
+      if (keywords.key) {
+        this.searchParams[keywords.key] = keywords.value
+      } else {
+        this.searchParams['region_id'] = ''
+        this.searchParams['community_id'] = ''
+      }
+      this.getHouseList()
+    }
+    setTimeout(() => {
+      this.skeleton_loading = false
+    }, 1000);
   },
   computed: {
     room() {
@@ -60,6 +102,16 @@ createPage({
       wx.navigateTo({
         url: '/pages/searchKeywords/index'
       })
+    },
+    handleDelKeywords(e: any) {
+      this.keywords = {
+        value: '',
+        key: '',
+        name: ''
+      }
+      this.searchParams['region_id'] = ''
+      this.searchParams['community_id'] = ''
+      this.getHouseList()
     },
     onClose() {
       this.isShowCityList = false
@@ -87,6 +139,19 @@ createPage({
         console.log(res, 'dsdsdsdsds')
         this.bannerList = res.data.data.banners;
       })
+    },
+    handleMenu(item: any) {
+      console.log(item);
+      const { name, type, value } = item
+      if (type === 'search') {
+        this.searchParams[value] = name
+        this.getHouseList()
+      } else {
+        const path = '/pages/' + value + '/index'
+        wx.switchTab({
+          url: path
+        })
+      }
     },
     // 合/整租选择
     handleSticky(e: any) {

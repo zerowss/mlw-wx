@@ -45,7 +45,9 @@ export const _BAIDU = {
 
 // 腾讯地图api
 export const _TX = {
-    key: 'GFTBZ-A3XHF-6OQJI-NY3RS-7BDLV-RPFTF'
+    // key: 'GFTBZ-A3XHF-6OQJI-NY3RS-7BDLV-RPFTF' // 公司
+    key: 'MTOBZ-M5A3P-LU2DF-LDW3B-KU54V-3LB55' // 个人测试
+
 }
 
 // 房屋状态

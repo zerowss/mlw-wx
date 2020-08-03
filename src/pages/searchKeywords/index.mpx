@@ -10,7 +10,6 @@
             class="input"
             auto-focus
             placeholder="你想住在哪?"
-            bindconfirm="handleSearch"
             bindinput="handleInput"
             wx:model="{{keywords}}"
           />
@@ -23,19 +22,16 @@
     <view class="show-search-list" wx:show="{{searchList.length > 0}}">
       <block wx:for="{{searchList}}" wx:key="index">
         <navigator open-type="navigateBack" hover-class="none">
-          <view data-value="{{item.community_id}}" class="show-item">{{item.name}}</view>
+          <view bindtap="handleSearchItem" data-key="community_id" data-name="{{item.name}}" data-value="{{item.community_id}}" class="show-item">{{item.name}}</view>
         </navigator>
       </block>
     </view>
     <view wx:show="{{!keywords}}">
       <view class="hot">热门搜索</view>
       <view class="hot-tags">
-        <activity-tag
-          disabled="{{true}}"
-          activity-name="年付免1月"
-          is-activited="{{true}}"
-          class="activity-tag"
-        ></activity-tag>
+        <block wx:for="{{hotSearch}}" wx:key="index">
+          <view bindtap="handleHotKey" data-key="region_id" data-name="{{item.region_name}}" data-value="{{item.region_id}}" class="activity-tag">{{item.region_name}}</view>
+        </block>
       </view>
     </view>
   </view>

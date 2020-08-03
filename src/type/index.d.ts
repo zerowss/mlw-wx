@@ -10,3 +10,5 @@ declare module "*.tiff";
 declare interface Date {
     format(ft?: string): string
 }
+
+declare var requirePlugin:any

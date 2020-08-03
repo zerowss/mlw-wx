@@ -79,7 +79,7 @@
   box-sizing: border-box;
   padding: _rpx(76) _rpx(20) 0 _rpx(20);
   background-color: $bg;
-  &.header-hidden{
+  &.header-hidden {
     height: 56px;
     overflow: hidden;
     padding: 0;
@@ -273,5 +273,51 @@
   }
   .van-dropdown-menu__title::after {
     border-width: 0;
+  }
+}
+
+// 骨架屏样式
+.top,
+.header {
+  --skeleton-padding: 0;
+}
+.header-search-skeleton {
+  --skeleton-row-height: 72rpx;
+}
+.banner-skeleton {
+  --skeleton-row-height: 286rpx;
+}
+.menu-skeleton {
+  flex: 1;
+  .van-skeleton__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .van-skeleton__row:nth-of-type(1) {
+    --skeleton-row-height: 72rpx;
+  }
+}
+.search-skeleton {
+  --skeleton-row-height: 36rpx;
+  .van-skeleton {
+    padding: 0 10px 0 0;
+  }
+}
+.house-info-skeleton {
+  display: flex;
+  --skeleton-padding: 0;
+  margin-top: 40rpx;
+}
+.house-info-skeleton-l {
+  width: 264rpx;
+  --skeleton-row-height: 194rpx;
+}
+.house-info-skeleton-r {
+  flex: 1;
+  padding: 0 0 0 20rpx;
+  .van-skeleton__row:last-child {
+    margin-top: 70rpx;
   }
 }

@@ -1,6 +1,6 @@
 @import "@/style/_base";
-.map-view{
-    width: 100%;
+.map-view {
+  width: 100%;
 }
 .tabs {
   display: flex;
@@ -28,6 +28,16 @@
   }
 }
 
-.map-wrap{
-    width:100%;
+.map-wrap {
+  width: 100%;
+}
+.cover-view {
+  position: fixed;
+  width: _rpx(52);
+  height: _rpx(52);
+  right: _rpx(30);
+  bottom: _rpx(55);
+  // box-sizing: border-box;
+  // padding: _rpx(10);
+  background-color: red;
 }
