@@ -47,7 +47,7 @@ export const mixinBase: IMixin = {
         getCityList(): any {
             Baseconfig.getCityData().then(res => {
                 this.cityList = res.data.data
-                // this.globalData['cityList'] = res.data.data
+                wx.setStorageSync('citylist',res.data.data)
             })
         },
         getSearchConfig() {

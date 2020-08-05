@@ -12,7 +12,7 @@ export interface IParams {
 function request(params: IParams) {
   const { url, method, data, flag = false } = params
   flag ? wx.showLoading({
-    title: 'loading...',
+    title: '加载中...',
   }) : '';
   return new Promise((resolve, reject) => {
     wx.request({

@@ -1,7 +1,7 @@
 import { createPage } from '@mpxjs/core'
 import Homepage from '@/service/home'
 import { mixinBase, mixinCallback } from '@/mixin'
-import { isEmptyObject, filterObjEmptyAttr } from '@/utils/tools'
+import { isEmptyObject, filterObjEmptyAttr, getCityId } from '@/utils/tools'
 createPage({
   mixins: [mixinCallback, mixinBase],
   data: {
@@ -121,15 +121,16 @@ createPage({
       this.isShowCityList = false
     },
     onSelect(e: any) {
-      console.log(e);
       this.city_name = e.detail.name
+      wx.setStorageSync('cityName', this.city_name)
+      this.getHouseList()
     },
     // 房源列表
     getHouseList() {
       const params = filterObjEmptyAttr(this.searchParams)
       this.page = 1
       Homepage.getList({
-        city_id: 12,
+        city_id: getCityId(this.city_name),
         page_size: 10,
         page: 1,
         ...params
@@ -240,7 +241,7 @@ createPage({
       this.page += 1
       const params = filterObjEmptyAttr(this.searchParams)
       Homepage.getList({
-        city_id: 12,
+        city_id: getCityId(this.city_name),
         page_size: 10,
         page: this.page,
         ...params

@@ -29,8 +29,11 @@ export const isLogin = () => {
 
 export const getCityId = (cityname: string) => {
   const cityList = wx.getStorageSync('citylist')
-  const city = cityList.find((v: ICityData) => cityname.indexOf(v.name) > -1)
-  return city ? city.id : ''
+  if (cityList) {
+    const city = cityList.find((v: ICityData) => cityname.indexOf(v.name) > -1)
+    return city ? city.id : ''
+  }
+  return ''
 }
 
 // 对象是否为空

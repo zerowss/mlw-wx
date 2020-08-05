@@ -91,6 +91,13 @@ createPage({
           })
         }
       })
+    },
+    // 跳转
+    handleJump(e: any) {
+      const url = e.target.dataset.path
+      wx.navigateTo({
+        url
+      })
     }
   }
 })

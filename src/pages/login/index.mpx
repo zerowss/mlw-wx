@@ -3,7 +3,7 @@
     <image class="img" src="../../static/images/icon/login_logo@3x.png" />
   </view>
   <view class="login-tip">
-    <text wx:if="{{is_bind_tel == false}}" >首次使用微信登录，请绑定手机号</text>
+    <text wx:if="{{is_bind_tel == false}}">首次使用微信登录，请绑定手机号</text>
   </view>
   <view class="login-btn">
     <button
@@ -20,6 +20,11 @@
       class="btn"
       type="primary"
     >授权绑定手机号</button>
+  </view>
+  <view class="show-agreement">
+    登录代表同意
+    <text data-path="/pages/aboutUsSub/serviceAgreement/index" bindtap="handleJump">《用户服务协议》</text>和
+    <text data-path="/pages/aboutUsSub/privacyPolicy/index" bindtap="handleJump">《隐私协议》</text>
   </view>
 </template>
 
@@ -51,7 +56,7 @@
 }
 .login-btn {
   width: 100%;
-  padding:0 _rpx(35) _rpx(53) _rpx(35);
+  padding: 0 _rpx(35) _rpx(53) _rpx(35);
   box-sizing: border-box;
   .btn {
     background-image: linear-gradient(180deg, #0ec9c4 0%, #069991 100%);
@@ -60,6 +65,20 @@
     color: #ffffff;
     height: _rpx(48);
     line-height: _rpx(48);
+  }
+}
+.show-agreement {
+  position: fixed;
+  left: 0;
+  bottom: _rpx(30);
+  width: 100%;
+  height: _rpx(20);
+  font-size: $f12;
+  line-height: _rpx(20);
+  text-align: center;
+  color: #999999;
+  text {
+    color: #069991;
   }
 }
 </style>

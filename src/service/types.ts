@@ -47,7 +47,7 @@ export interface IRoomListParams {
 
 // 预约列表
 export interface IMyAppointment {
-    reserv_status: string;
+    reserv_status: number;
     page: number;
     page_size: number;
 }
