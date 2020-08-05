@@ -21,8 +21,8 @@ export const domain = process.env.NODE_ENV !== "production" ? 'https://thirdtest
 export const _cdnUrl = 'http://xeme.oss-cn-shanghai.aliyuncs.com'
 
 // 区分h5测试/线上域名
-export const _h5 = process.env.NODE_ENV !== "production" ? 'http://bj.m.t.iron.mlwplus.com' : 'http://m.meiliwu.com'
-// export const _h5 = 'http://m.meiliwu.com'
+// export const _h5 = process.env.NODE_ENV !== "production" ? 'http://bj.m.t.iron.mlwplus.com' : 'http://m.meiliwu.com'
+export const _h5 = 'https://w.mlwplus.com'
 
 // 统一管理web-view引入路径
 interface IH5PagesUrl {
@@ -45,8 +45,8 @@ export const _BAIDU = {
 
 // 腾讯地图api
 export const _TX = {
-    // key: 'GFTBZ-A3XHF-6OQJI-NY3RS-7BDLV-RPFTF' // 公司
-    key: 'MTOBZ-M5A3P-LU2DF-LDW3B-KU54V-3LB55' // 个人测试
+    key: 'GFTBZ-A3XHF-6OQJI-NY3RS-7BDLV-RPFTF' // 公司
+    // key: 'MTOBZ-M5A3P-LU2DF-LDW3B-KU54V-3LB55' // 个人测试
 
 }
 

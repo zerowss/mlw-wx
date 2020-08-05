@@ -1,9 +1,9 @@
 <template>
-  <!-- <view class="no-data">
+  <view class="no-data" wx:if="{{couponList.length == 0}}">
     <image class="img" src="{{no_data_img}}" />
     <view class="memo">暂无优惠券</view>
-  </view>-->
-  <view class="setcion_wrap">
+  </view>
+  <view class="setcion_wrap" wx:else>
     <view class="instructions">
       <view class="inst-icon"></view>
       <view class="inst-word">优惠券使用说明</view>
@@ -12,7 +12,7 @@
     <view class="page_wrap">
       <block wx:for="{{couponList}}" wx:key="index">
         <view class="mt15">
-          <coupon-item></coupon-item>
+          <coupon-item coupon="{{item}}"></coupon-item>
         </view>
       </block>
       <view class="history" bindtap="toCouponHistory">查看历史优惠券</view>

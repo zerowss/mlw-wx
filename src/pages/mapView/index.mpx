@@ -19,12 +19,14 @@
         style="width: 100%; height: {{map_h}}"
         bindcallouttap="handleCallout"
         markers="{{markers}}"
-        show-location="{{true}}"
         include-points="{{markers}}"
-        show-compass="{{true}}"
+        show-compass
       ></map>
     </view>
-    <cover-view class="cover-view" bindtap="pathPlanning"></cover-view>
+    <view class="cover-view" bindtap="pathPlanning">
+      <view class="route-icon"></view>
+      <view class="route-tit">路线</view>
+    </view>
   </view>
 </template>
 

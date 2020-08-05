@@ -5,16 +5,13 @@ import QQMapWX from '@/lib/qqmap-wx-jssdk1.2/qqmap-wx-jssdk.min'
 let qqmapsdk: any
 createPage({
   onLoad(query: any) {
-    const { longitude, latitude } = query
+    const { longitude, latitude,address } = query
     qqmapsdk = new QQMapWX({
       key: _TX.key
     });
-
-    // this.latitude = latitude
-    // this.longitude = longitude
-    // 116.290202,39.841056
-    this.latitude = 39.841056
-    this.longitude = 116.290202
+    this.latitude = latitude
+    this.longitude = longitude
+    this.address = address
   },
   onShow() {
     this.initMap()
@@ -26,17 +23,24 @@ createPage({
     map_h: '100%',
     latitude: 0,
     longitude: 0,
-    markers: [
-      {
+    address: '',
+    markers: [] as any[],
+    routeIcon: getCdnUrl('icon_location')
+  },
+  computed: {
+    houseMarker() {
+      return {
         id: 1,
-        latitude: 39.841056,
-        longitude: 116.290202,
+        latitude: this.latitude,
+        longitude: this.longitude,
         iconPath: getCdnUrl('icon_location'),
         width: 20,
         height: 20
       }
-    ] as any[],
-    routeIcon: getCdnUrl('icon_location')
+    },
+    locationInner() {
+      return this.latitude + ',' + this.longitude
+    }
   },
   methods: {
     onTabsItemTap(e: any) {
@@ -60,35 +64,33 @@ createPage({
     },
     getPoi(value: string) {
       const _this = this
+      this.markers.push(this.houseMarker)
       qqmapsdk.search({
         keyword: value,
-        location: '39.841056,116.290202',
-        success: function (res: any) {
+        location: this.locationInner,
+        success(res: any) {
           console.log(res);
-          wx.nextTick(() => {
-            const markers = res.data.map((v: any) => {
-              const { location, title, id } = v
-              const reg = new RegExp(/\[\S+\]/)
-              const tit = title.replace(reg, '')
-              console.log(tit)
-
-              return {
-                id: Number(id),
-                latitude: location.lat,
-                longitude: location.lng,
-                callout: {
-                  content: tit,
-                  color: '#ffffff',
-                  display: 'ALWAYS',
-                  textAlign: 'center',
-                  bgColor: '#069991',
-                  borderRadius: 10,
-                  padding: 6
-                }
+          const markers = res.data.map((v: any) => {
+            const { location, title, id } = v
+            const reg = new RegExp(/\[\S+\]/)
+            const tit = title.replace(reg, '')
+            return {
+              id: Number(id),
+              latitude: location.lat,
+              longitude: location.lng,
+              iconPath: ' ',
+              callout: {
+                content: tit,
+                color: '#ffffff',
+                display: 'ALWAYS',
+                textAlign: 'center',
+                bgColor: '#069991',
+                borderRadius: 5,
+                padding: 10
               }
-            })
-            _this.markers = _this.markers.concat(markers)
+            }
           })
+          _this.markers = _this.markers.concat(markers)
         }
       })
     },
@@ -97,7 +99,7 @@ createPage({
       let key = _TX.key;  //使用在腾讯位置服务申请的key
       let referer = '美丽屋';   //调用插件的app的名称
       let endPoint = JSON.stringify({  //终点
-        'name': '吉野家(北京西站北口店)',
+        'name': this.address,
         'latitude': this.latitude,
         'longitude': this.longitude
       });

@@ -1,9 +1,9 @@
 import { createPage } from '@mpxjs/core'
 import Homepage from '@/service/home'
-import { mixinBase } from '@/mixin'
+import { mixinBase, mixinCallback } from '@/mixin'
 import { isEmptyObject, filterObjEmptyAttr } from '@/utils/tools'
 createPage({
-  mixins: [mixinBase],
+  mixins: [mixinCallback, mixinBase],
   data: {
     skeleton_loading: true,
     bannerList: [],
@@ -60,11 +60,10 @@ createPage({
     noMore: false
   },
   onLoad() {
-    this.city_name = wx.getStorageSync('cityName')
-    this.getHouseList()
-    this.getHomeContent()
-    console.log('ssssssss');
-
+    // this.city_name = wx.getStorageSync('cityName')
+    // console.log(this.city_name,'this.city_name ');
+    // this.getHomeContent()
+    // console.log('ssssssss');
   },
   onShow() {
     let pages = getCurrentPages();
@@ -90,11 +89,16 @@ createPage({
       return this.searchForm.conditions.room || {}
     },
     activityTagsList() {
-      return this.searchForm.conditions.activities || {}
+      return this.searchForm.conditions.activities || { selections: [] }
     }
   },
   methods: {
-
+    employIdCallback() {
+      this.city_name = wx.getStorageSync('cityName')
+      console.log(this.city_name, 'this.city_name ');
+      this.getHomeContent()
+      console.log('ssssssss');
+    },
     handleCity() {
       this.isShowCityList = true
     },
@@ -136,7 +140,6 @@ createPage({
     // 获取banner
     getHomeContent() {
       Homepage.getHomeContent(12).then(res => {
-        console.log(res, 'dsdsdsdsds')
         this.bannerList = res.data.data.banners;
       })
     },
@@ -250,14 +253,5 @@ createPage({
         }
       })
     }
-  },
-  watch: {
-    // searchParams: {
-    //   handler(newval, oldval) {
-    //     console.log('newval', newval);
-
-    //     this.getHouseList()
-    //   }
-    // }
   }
 })

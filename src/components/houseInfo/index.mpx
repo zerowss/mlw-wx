@@ -15,7 +15,7 @@
       </van-image>
     </view>
     <view class="house-info-r">
-      <view class="base-info">{{houseInfo.c_title}}</view>
+      <view class="base-info">{{houseInfo.c_title || houseInfo.title}}</view>
       <view class="info-detail">{{houseInfo.sub_title}}</view>
       <view class="info-tags">
         <view wx:if="isShowTags">
@@ -70,6 +70,7 @@
       color: $cblack;
       height: _rpx(16);
       line-height: _rpx(16);
+      @include ellipsis;
     }
     .info-detail {
       font-size: $f12;

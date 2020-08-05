@@ -37,7 +37,20 @@
   height: _rpx(52);
   right: _rpx(30);
   bottom: _rpx(55);
-  // box-sizing: border-box;
-  // padding: _rpx(10);
-  background-color: red;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50%;
+  .route-icon {
+    width: _rpx(24);
+    height: _rpx(22);
+    @include bgUrl(_cdn("icon_luxian"));
+  }
+  .route-tit {
+    font-size: 24rpx;
+    color: #333333;
+    margin-top: 2rpx;
+  }
 }

@@ -6,7 +6,7 @@
           <view class="word">{{isLogin?userInfo.nickName:'点击注册/登录'}}</view>
           <view class="word-sub">
             <block wx:if="{{isLogin}}">
-              <text>18811112222</text>
+              <text>{{userInfo.phone}}</text>
             </block>
             <block wx:else>
               <text>因为美丽屋</text>
@@ -29,8 +29,6 @@
           custom-class="list-item"
           is-link
           title="{{item.name}}"
-          link-type="navigateTo"
-          url="{{item.path}}"
           bind:click="showPhoneCall(item)"
         />
       </block>
@@ -68,3 +66,4 @@
     }
   }
 </script>
+

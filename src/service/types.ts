@@ -43,3 +43,18 @@ export interface IRoomListParams {
     biz_area_id?: string; // 选择区域时
     community_id?: string; // 搜索点击下拉时所传
 }
+
+
+// 预约列表
+export interface IMyAppointment {
+    reserv_status: string;
+    page: number;
+    page_size: number;
+}
+
+export interface IAddMyAppointment {
+    time_id: string;
+    date: string;
+    document_id: string;
+    city_id: number;
+}

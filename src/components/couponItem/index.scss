@@ -81,7 +81,7 @@
       font-size: $f12;
       color: #999999;
       &.no-more {
-        height: _rpx(16);
+        // height: _rpx(16);
         @include ellipsis;
       }
       &.show-more {

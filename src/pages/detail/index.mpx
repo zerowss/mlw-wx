@@ -29,7 +29,10 @@
         <view wx:show="{{houseInfo.has_balcony != '0'}}" class="activity-tag">阳台</view>
       </view>
       <!-- 活动 -->
-      <view class="activities-wrap">
+      <view
+        class="activities-wrap"
+        wx:if="{{houseInfo.activity_tags && houseInfo.activity_tags.length > 0}}"
+      >
         <view class="activities">
           <view class="act-l">活动</view>
           <view class="act-r">
@@ -78,12 +81,14 @@
       <view class="title">房屋配置</view>
       <view class="deploy mt15">
         <block wx:for="{{deployList}}" wx:key="index">
-          <view class="deploy-item {{WXS.isInArray(goodsInfo,item.name)?'':'deploy-disabled'}}">
+          <view
+            class="deploy-item {{item && WXS.isInArray(goodsInfo,item.name)?'':'deploy-disabled'}}"
+          >
             <view class="deploy-gutter">
               <view class="deploy-icon">
                 <image
                   class="img"
-                  src="{{WXS.isInArray(goodsInfo,item.name)?item.url:item.no_url}}"
+                  src="{{item && WXS.isInArray(goodsInfo,item.name)?item.url:item.no_url}}"
                 />
               </view>
               <view class="deploy-word">{{item.name}}</view>
@@ -114,20 +119,16 @@
       <view class="title">地址</view>
       <view class="title-sub">{{houseInfo.district}} {{houseInfo.region}} {{houseInfo.community}}</view>
       <view class="map">
-        <navigator
-          url="/pages/mapView/index?longitude=113.324520&latitude=23.099994"
-          hover-class="none"
-        >
-          <map
-            id="map"
-            longitude="113.324520"
-            latitude="23.099994"
-            scale="14"
-            show-location
-            style="width: 100%; height: 360rpx;"
-            bindtap="handleMap"
-          ></map>
-        </navigator>
+        <map
+          id="map"
+          longitude="{{point.lng}}"
+          latitude="{{point.lat}}"
+          style="width: 100%; height: 360rpx;"
+          bindtap="handleMap"
+          markers="{{mapMarkers}}"
+          show-compass
+          show-scale
+        ></map>
       </view>
     </view>
   </view>
@@ -138,10 +139,13 @@
       <view class="house-list">
         <view class="containt">
           <view class="house-info-wrap">
-            <block wx:for="{{houseInfoList}}" wx:key="index">
+            <block wx:for="{{houseInfo.near_houses}}" wx:key="index">
               <view class="house-info-item {{index == 0?'.no-bo':''}}">
-                <navigator url="/pages/detail/index?title=navigate">
-                  <house-info></house-info>
+                <navigator
+                  hover-class="none"
+                  url="/pages/detail/index?document_id={{item.document_id}}"
+                >
+                  <house-info houseInfo="{{item}}"></house-info>
                 </navigator>
               </view>
             </block>
@@ -154,19 +158,48 @@
   <!-- 咨询、收藏 -->
   <view class="footer-wrap">
     <view class="footer">
-      <view class="collection">
-        <view class="icon collection-icon"></view>
+      <!-- is_favorite -->
+      <view class="collection" bindtap="hanleCollection">
+        <view wx:class="icon collection-icon {{is_collection?'actived':''}}"></view>
         <view class="title collection-title">收藏</view>
       </view>
-      <view class="share">
+      <button class="share" open-type="share">
         <view class="icon share-icon"></view>
-        <view class="title share-title">收藏</view>
-      </view>
+        <view class="title share-title">分享</view>
+      </button>
       <view class="advice">
-        <view class="btn">电话咨询</view>
+        <view class="btn" bindtap="showPhoneCall">电话咨询</view>
+        <van-action-sheet
+          class="action-sheet"
+          bind:cancel="closePhoneCall"
+          round="{{false}}"
+          bind:select="makePhoneCall"
+          show="{{ is_phone_show }}"
+          actions="{{ phone_actions }}"
+          cancel-text="取消"
+        />
       </view>
       <view class="appointment">
-        <view class="btn yy">预约看房</view>
+        <view class="btn yy" bindtap="handleAppointment">预约看房</view>
+        <van-popup
+          closeable
+          show="{{ appointment_show }}"
+          position="bottom"
+          bind:close="onCloseAppointment"
+          class="appointment-popup"
+        >
+          <view class="appointment-picker">
+            <view class="appointment-picker-title">请选择看房时间</view>
+            <van-picker
+              confirm-button-text
+              cancel-button-text
+              visible-item-count="{{3}}"
+              columns="{{ appointmentList }}"
+              bind:change="onChangeAppointment"
+            />
+            <view bindtap="makeAppointment" class="make-appointment">立即预约</view>
+          </view>
+        </van-popup>
       </view>
     </view>
   </view>
@@ -186,7 +219,10 @@
       "navigation-bar": "@/components/navigationBar/index",
       "activity-tag": "@/components/activityTag",
       "room-tag": "@/components/roomTag",
-      "house-info": "@/components/houseInfo"
+      "house-info": "@/components/houseInfo",
+      "van-action-sheet": "@vant/weapp/dist/action-sheet/index",
+      "van-picker": "@vant/weapp/dist/picker/index",
+      "van-popup": "@vant/weapp/dist/popup/index"
     }
   }
 </script>

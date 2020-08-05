@@ -1,1 +1,20 @@
 @import "@/style/_base";
+.no-data {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .img {
+    display: block;
+    width: _rpx(124);
+    height: _rpx(109);
+    margin-bottom: 20rpx;
+  }
+  .memo {
+    font-size: $f16;
+    color: #b5b5b5;
+    text-align: center;
+  }
+}

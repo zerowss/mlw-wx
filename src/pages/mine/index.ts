@@ -1,18 +1,13 @@
 import { createPage } from '@mpxjs/core'
 import { menuList } from './data'
-import { getCdnUrl, toast } from '@/utils/tools'
+import { getCdnUrl, toast,isLogin } from '@/utils/tools'
 createPage({
-  onLoad() {
-    this.userInfo = wx.getStorageSync('userInfo')
-  },
   onShow() {
-    // if (typeof this.getTabBar === 'function') {
-    //   this.getTabBar().init(3)
-    // }
+    this.userInfo = wx.getStorageSync('userInfo')
   },
   data: {
     menuList,
-    userInfo: '' as any,
+    userInfo: {} as any,
     phone_actions: [
       {
         name: '400-123-1234',
@@ -27,10 +22,10 @@ createPage({
   },
   computed: {
     isLogin() {
-      return this.userInfo ? true : false
+      return this.userInfo && this.userInfo.openId ? true : false
     },
     avatarUrl() {
-      return this.userInfo ? this.userInfo.avatarUrl : getCdnUrl('img_touxiang')
+      return this.userInfo && this.userInfo.openId ? this.userInfo.avatarUrl : getCdnUrl('img_touxiang')
     }
   },
   methods: {
@@ -53,7 +48,8 @@ createPage({
         wx.nextTick(() => {
           toast('已退出')
         })
-        wx.setStorageSync('userInfo','')
+        wx.setStorageSync('userInfo', '')
+        wx.setStorageSync('token', '')
         // 重载页面
         wx.reLaunch({
           url: "/pages/mine/index"
@@ -65,13 +61,16 @@ createPage({
       if (item.name === '租房咨询') {
         this.is_phone_show = true
       }
+      if (isLogin()) {
+        wx.navigateTo({
+          url: item.path
+        })
+      }
     },
     closePhoneCall() {
       this.is_phone_show = false
     },
     makePhoneCall(e: any) {
-      console.log(e);
-
       wx.makePhoneCall({
         phoneNumber: '4001231234'
       })

@@ -70,7 +70,7 @@
         line-height: _rpx(20);
       }
       .act-r {
-        .mt13{
+        .mt13 {
           margin-top: _rpx(13);
         }
         .act-memo {
@@ -127,8 +127,8 @@
 .bor-bot {
   border-bottom: 1rpx solid #e9e9e9;
 }
-.bor-bot-weight{
-    border-bottom: 20rpx solid #F4F6F7;
+.bor-bot-weight {
+  border-bottom: 20rpx solid #f4f6f7;
 }
 
 .more-wrap {
@@ -139,10 +139,10 @@
     height: _rpx(22);
     line-height: _rpx(22);
   }
-  .title-sub{
-      font-size: $f14;
-      color: #777777;
-      margin: _rpx(6) 0 _rpx(15) 0;
+  .title-sub {
+    font-size: $f14;
+    color: #777777;
+    margin: _rpx(6) 0 _rpx(15) 0;
   }
   .deploy {
     display: flex;
@@ -155,8 +155,8 @@
       align-items: center;
       justify-content: flex-start;
       margin-bottom: _rpx(19);
-      &.deploy-disabled{
-        .deploy-word{
+      &.deploy-disabled {
+        .deploy-word {
           color: #999999;
         }
       }
@@ -192,92 +192,134 @@
     .scroll-view {
       height: _rpx(80);
     }
-    .scroll-item{
-        margin-right: _rpx(15);
-        display: inline-block;
+    .scroll-item {
+      margin-right: _rpx(15);
+      display: inline-block;
     }
   }
-  .map{
-      width: 100%;
-      height: _rpx(180);
+  .map {
+    width: 100%;
+    height: _rpx(180);
   }
 }
-.house-list{
-    @import '@/style/_houselist';
+.house-list {
+  @import "@/style/_houselist";
 }
-
 
 // 底部
-.footer-wrap{
+.footer-wrap {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 16rpx 0 #e2e2e2;
+  .footer {
     width: 100%;
-    height: auto;
-    box-shadow: 0 0 16rpx 0 #E2E2E2;
-    .footer{
-        width: 100%;
-        height: _rpx(70);
-        background-color: #ffffff;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        padding: _rpx(13) _rpx(20) _rpx(13) _rpx(25);
-        .title{
-            font-size: _rpx(11);
-            color: #383838;
-            margin-top: 12rpx;
-        }
-        .btn{
-            width: _rpx(98);
-            height: _rpx(44);
-            box-sizing: border-box;
-            line-height: _rpx(44);
-            background-color: #ffffff;
-            color: $cblue;
-            font-size: $f14;
-            text-align: center;
-            border: 1rpx solid $cblue;
-            border-radius: 4rpx;
-            &.yy{
-                background-color: $cblue;
-                color: #ffffff;
-            }
-        }
-        .collection{
-            width: _rpx(22);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: _rpx(5);
-            .collection-icon{
-                width: _rpx(22);
-                height: _rpx(19);
-                @include bgUrl('../../static/images/icon/icon_shoucang@3x.png');
-            }
-        }
-        .share{
-            width: _rpx(22);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-left: _rpx(30);
-            margin-top: _rpx(5);
-            .share-icon{
-                width: _rpx(19);
-                height: _rpx(19);
-                @include bgUrl('../../static/images/icon/icon_fenxiang@3x.png');
-            }
-            .share-title{
-                width: _rpx(22);
-            }
-        }
-        .advice{
-            margin-left: _rpx(52);
-        }
-        .appointment{
-            margin-left: _rpx(10);
-        }
+    height: _rpx(70);
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: _rpx(13) _rpx(20) _rpx(13) _rpx(25);
+    .title {
+      font-size: _rpx(11);
+      color: #383838;
+      margin-top: 12rpx;
     }
+    .btn {
+      width: _rpx(98);
+      height: _rpx(44);
+      box-sizing: border-box;
+      line-height: _rpx(44);
+      background-color: #ffffff;
+      color: $cblue;
+      font-size: $f14;
+      text-align: center;
+      border: 1rpx solid $cblue;
+      border-radius: 4rpx;
+      &.yy {
+        background-color: $cblue;
+        color: #ffffff;
+      }
+    }
+    .collection {
+      width: _rpx(22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: _rpx(5);
+      .collection-icon {
+        width: _rpx(22);
+        height: _rpx(19);
+        @include bgUrl("../../static/images/icon/icon_shoucang@3x.png");
+        &.actived {
+          @include bgUrl("../../static/images/icon/icon_yishoucang@3x.png");
+        }
+      }
+    }
+    .share {
+      width: _rpx(22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-left: _rpx(30);
+      margin-top: _rpx(2);
+      background-color: #ffffff;
+      border-radius: 0;
+      padding-left: 0;
+      padding-right: 0;
+      line-height: 1;
+      &::after {
+        border: 0;
+      }
+      .share-icon {
+        width: _rpx(19);
+        height: _rpx(19);
+        @include bgUrl("../../static/images/icon/icon_fenxiang@3x.png");
+        margin-bottom: _rpx(2);
+      }
+      .share-title {
+        width: _rpx(22);
+      }
+    }
+    .advice {
+      margin-left: _rpx(52);
+      .action-sheet {
+        --safe-area-inset-bottom: 48px;
+      }
+    }
+    .appointment {
+      margin-left: _rpx(10);
+      .appointment-popup{
+        overflow: hidden;
+        .van-popup--bottom.van-popup--safe{
+          padding-bottom: 0rpx;
+          box-sizing: border-box;
+        }
+        .van-picker-column{
+          font-size: $f14;
+        }
+      }
+      .appointment-picker{
+        .appointment-picker-title{
+          font-weight: 500;
+          font-size: $f16;
+          text-align: center;
+          height: 100rpx;
+          line-height: 100rpx;
+        }
+      }
+      .make-appointment{
+        width:100%;
+        height: 80rpx;
+        line-height: 80rpx;
+        font-size: $f14;
+        text-align: center;
+        border-top: 1rpx solid $border-color;
+        box-sizing: border-box;
+      }
+    }
+  }
 }

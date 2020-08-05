@@ -1,4 +1,5 @@
 import { _cdnUrl } from '@/config'
+import { ICityData } from '@/service/types';
 // 获取cdn地址
 export const getCdnUrl = (u: string, suffix: string = '.png') => {
   // http://xeme.oss-cn-shanghai.aliyuncs.com/wechat/background_coupon_disabled.png
@@ -12,6 +13,24 @@ export function toast(title: string) {
     icon: "none",
     duration: 1000
   });
+}
+
+// 没有登录去登录
+export const isLogin = () => {
+  const userInfo = wx.getStorageSync('userInfo')
+  if (!userInfo) {
+    wx.navigateTo({
+      url: '/pages/login/index'
+    })
+    return false
+  }
+  return true
+}
+
+export const getCityId = (cityname: string) => {
+  const cityList = wx.getStorageSync('citylist')
+  const city = cityList.find((v: ICityData) => cityname.indexOf(v.name) > -1)
+  return city ? city.id : ''
 }
 
 // 对象是否为空

@@ -1,24 +1,23 @@
 <template>
-  <view class="c-wrap {{is_disabled?'c-disabled':''}}">
+  <view class="c-wrap {{disabled?'c-disabled':''}}">
     <view class="c-top">
       <view class="c-top-l">
         <view class="l-tit">
-          <view class="l-unit">￥</view>888
+          <view wx:show="{{coupon.coupon_type == '1'}}" class="l-unit">￥</view>
+          {{mInner}}
         </view>
-        <view class="l-memo">满10000可用</view>
+        <view class="l-memo">{{mInnerSub}}</view>
       </view>
       <view class="c-top-r">
-        <view class="r-tit">满减券</view>
-        <view class="r-memo">有效期至2020/05/05</view>
-        <view class="r-status">
+        <view class="r-tit">{{coupon.coupon_name}}</view>
+        <view class="r-memo">{{coupon.continued_date}}</view>
+        <view wx:if="{{disabled}}" class="r-status">
           <image src="{{statusImgUrl}}" />
         </view>
       </view>
     </view>
     <view class="c-bot" bindtap="showMore">
-      <view class="bot-memo {{is_show_more?'show-more':'no-more'}}">
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      </view>
+      <view class="bot-memo {{is_show_more?'show-more':'no-more'}}">{{coupon.coupon_description}}</view>
       <view class="bot-icon {{is_show_more?'actived':''}}"></view>
     </view>
   </view>

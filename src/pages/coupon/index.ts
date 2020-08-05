@@ -1,19 +1,22 @@
 import { createPage } from '@mpxjs/core'
 import { getCdnUrl } from '@/utils/tools'
-
+import Coupon from '@/service/coupon'
 createPage({
   onLoad() {
     //
-    this.couponList = new Array(3).fill(1)
+    this.getList()
   },
   data: {
     no_data_img: getCdnUrl('icon_nocoupon'),
-    couponList: [] as number[]
+    couponList: []
   },
-  methods:{
-    toCouponHistory(){
-      console.log('ssss');
-      
+  methods: {
+    getList() {
+      Coupon.getList().then(res => {
+        this.couponList = res.data.data.data
+      })
+    },
+    toCouponHistory() {
       wx.navigateTo({
         url: '/pages/couponHistory/index'
       })
